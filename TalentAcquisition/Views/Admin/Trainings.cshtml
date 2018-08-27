@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Trainings";
+    Layout = "~/Views/Shared/_NormalLayout.cshtml";
+}
+<p style="font-size: 22px;">Trainings</p>
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
+    @*<li><a href="#">Private</a></li>*@
+    @*<li><a href="#">Pictures</a></li>*@
+    <li class="active">Trainings</li>
+</ol>
+<style>
+    a:hover
+    {
+        text-decoration:none !important;
+    }
+    a:active
+    {
+        text-decoration:none !important;
+    }
+</style>
+<section class="container ">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <p class="">Activities</p>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li>@Html.ActionLink("View Personal Training Schedule", "Personal/Schedule", "Trainings")</li>
+                    <li>@Html.ActionLink("Request For New Training", "Request/Create", "Trainings")</li>
+                     @if (User.IsInRole("Admin"))
+                     {
+                            <li>@Html.ActionLink("Approve Training Requests", "All", "Trainings")</li>
+                            <li>@Html.ActionLink("Setup Training Course", "Course", "Trainings")</li>
+                            <li>@Html.ActionLink("Setup Training Provider", "Provider", "Trainings")</li>
+                            @*<li>@Html.ActionLink("Approve Training Request", "ApproveRequest", "Trainings")</li>*@
+                     }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,236 @@
+﻿@*<li>@Html.ActionLink("Dashboard", "Dashboard", "Admin")</li>
+    <li>@Html.ActionLink("Create New Team Member", "Restricted/add_employee", "Admin")</li>
+    <li>@Html.ActionLink("View All Employee Records", "Restricted/manage_employee", "Admin")</li>
+    <li>@Html.ActionLink("Manage Office Positions", "manage_officeposition", "Admin")</li>
+    <ul>
+        <li>@Html.ActionLink("Add New Office Position", "manage_officeposition/Create", "Admin")</li>
+        <li>@Html.ActionLink("Manage Department", "manage_departments", "Admin")</li>
+        <li>@Html.ActionLink("Manage Industries", "manage_industries", "Admin")</li>
+    </ul>
+    <li>@Html.ActionLink("Create New Job Requisition", "Requisition/Create", "Admin")</li>
+    <li>@Html.ActionLink("Manage Job Requisitions", "Requisitions", "Admin")</li>
+    <li>@Html.ActionLink("Interview/Recommendation Requests", "Recommendation/Request", "Admin")</li>*@
+
+@{
+
+}
+<style>
+    /*.navbar-default sidebar{
+        background-color:none;
+    }
+    
+    
+    .sidebar-nav li a {
+        font-size: 13px;
+        color: rgba(4, 5, 47,0.8);
+    }*/
+    .sidebar{
+        top:60px;width:300px;background-color#fff;bottom:0;left:0;margin-bottom:0;position:fixed;border-right:1px solid #ddd;
+
+    }
+      li > a {
+          color: grey;
+    }
+    /*.navbar-default
+    {
+        background: #E5E7E9;
+
+    }
+       */
+
+</style>
+<br />
+@if (User.IsInRole("Admin"))
+{
+    <div class="navbar-default sidebar" role="navigation" style="font-size:90%;">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="@Url.Action("Dashboard", "Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/List.png" style="height:20px;width:22px"</span> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/Office-Building.png" style="height:20px;width:22px"</span> Organisational Administration <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#"><span><img src="~/Assets/Icons/Organogram.png" style="height:18px;width:18px"</span> Departments<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="@Url.Action("manage_departments/create", "Admin")"><span><img src="~/Assets/Icons/Plus.png" style="height:15px;width:15px"</span> Add New</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("manage_departments", "Admin")"><span><img src="~/Assets/Icons/Settings.png" style="height:15px;width:15px"</span>  Manage All</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><span><img src="~/Assets/Icons/Cabinet.png" style="height:18px;width:18px"</span> Specializations<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="@Url.Action("manage_industries/create", "Admin")"><span><img src="~/Assets/Icons/Plus.png" style="height:15px;width:15px"</span> Add New</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("manage_industries", "Admin")"><span><img src="~/Assets/Icons/Settings.png" style="height:15px;width:15px"</span> Manage All</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><span><img src="~/Assets/Icons/Engineer.png" style="height:18px;width:18px"</span> Office Positions <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="@Url.Action("Job/create", "Admin")"><span><img src="~/Assets/Icons/Plus.png" style="height:15px;width:15px"</span> Add New</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Jobmanager", "Admin")"><span><img src="~/Assets/Icons/Settings.png" style="height:15px;width:15px"</span> Manage All</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="@Url.Action("JobBoard", "Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Presentation-.png" style="height:20px;width:22px"</span> Job Board</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("SelfService","Employees")" style="font-weight:bold"><span><img src="~/Assets/Icons/Support.png" style="height:20px;width:18px"</span> Self Service</a>
+                </li>
+                <li>
+                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/Agenda.png" style="height:20px;width:20px"</span> Recruitment <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="@Url.Action("Requisition/Create", "Admin")"><span><img src="~/Assets/Icons/Plus.png" style="height:15px;width:15px"</span> Create Requisition</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Requisitions/Monitor", "Admin")"><span><img src="~/Assets/Icons/Light-Bulb.png" style="height:18px;width:15px"</span> Requisition Alerts</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Requisitions", "Admin")"><span><img src="~/Assets/Icons/Settings.png" style="height:15px;width:15px"</span> Manage Requisition</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="@Url.Action("Onboarding", "Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Desk.png" style="height:20px;width:22px"</span> Employee Onboarding</a>
+                </li>
+                <li>
+                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/Bedge.png" style="height:20px;width:22px"</span>  Employee Management <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="@Url.Action("Restricted/add_employee", "Admin")"><span><img src="~/Assets/Icons/Man-Suit-2.png" style="height:15px;width:15px"</span> Add new Employee</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Restricted/manage_employee", "Admin")"><span><img src="~/Assets/Icons/Settings.png" style="height:15px;width:15px"</span> Manage Employees</a>
+                        </li>
+                    </ul>
+                </li>
+                @*<li>
+                        <a href="@Url.Action("LeaveManager","Admin")"><i class="fa fa-dashboard fa-fw"></i>Leave Mangement</a>
+                    </li>*@
+                @*<a href="@Url.Action("LeaveManager","Admin")"><i class="fa fa-dashboard fa-fw"></i>Leave Mangement</a>*@
+                <li>
+                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/Bank.png" style="height:20px;width:22px"</span>  Leave Management <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="@Url.Action("Index", "LeaveManagement")"><span><img src="~/Assets/Icons/Box-File.png" style="height:15px;width:15px"</span> Leave Plan</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("LeaveApplication", "Admin")"><span><img src="~/Assets/Icons/Box-Outgoing.png" style="height:15px;width:15px"</span> Leave Application</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("LeaveResumption", "Admin")"><span><img src="~/Assets/Icons/Box-Incoming.png" style="height:15px;width:15px"</span> Leave Resumption</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Settings", "LeaveManagement")"><span><img src="~/Assets/Icons/Settings.png" style="height:15px;width:15px"</span> Leave Settings</a>
+                        </li>
+                        @*<li>
+                                <a href="@Url.Action("History", "LeaveManagement")"><i class="fa fa-address-book fa-fw"></i>History</a>
+                            </li>*@
+                    </ul>
+                </li>
+                <li>
+                    <a href="@Url.Action("Trainings","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Settings.png" style="height:20px;width:22px"</span> Trainings</a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Performance","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Dashboard.png" style="height:20px;width:22px"</span> Performance Management</a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("ComplaintManager","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Barricade.png" style="height:20px;width:22px"</span> Grievance Management</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ExpenseManager","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Banknote-Euro.png" style="height:20px;width:22px"</span> Expense Management</a>
+                </li>
+                @*<li>
+                        <a href="@Url.Action("Retirement","Admin")"><i class="fa fa-dashboard fa-fw"></i><span class="fa arrow"></span>Retirement and Pension</a>
+                    </li>*@
+
+                @*<li>
+                        <a href="#"><i class="fa fa-handshake-o fa-fw"></i>  Screening and Interview<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Requisitions", "Team")"><i class="fa fa-calendar-check-o fa-fw"></i>  Upcoming Interviews</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Requisitions", "Team")"><i class="fa fa-comments-o fa-fw"></i>  Interview Feedback</a>
+                            </li>
+                        </ul>
+                    </li>*@
+
+                <li>
+                    <a href="@Url.Action("ExitManager","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Remove.png" style="height:20px;width:22px"</span> Employee Exit</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+}
+else
+{
+    <div class="navbar-default sidebar" role="navigation" style="font-size:80%;">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="@Url.Action("Dashboard","Admin")"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Jobmanager","Admin")"><i class="fa fa-window-maximize fa-fw"></i>Job Board</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("SelfService","Employees")"><i class="fa fa-dashboard fa-fw"></i>Employee Self Service</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("LeaveManager","Admin")"><i class="fa fa-dashboard fa-fw"></i>Leave Mangement</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Trainings","Admin")"><i class="fa fa-pie-chart fa-fw"></i> Trainings</a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Performance","Admin")"><i class="fa fa-universal-access fa-fw"></i> Performance Management</a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("ComplaintManager","Admin")"><i class="fa fa-credit-card fa-fw"></i> Grievance Management</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ExpenseManager","Admin")"><i class="fa fa-line-chart fa-fw"></i>Expense Management</a>
+                </li>
+                @*<li>
+                        <a href="@Url.Action("Retirement","Admin")"><i class="fa fa-dashboard fa-fw"></i><span class="fa arrow"></span>Retirement and Pension</a>
+                    </li>*@
+                <li>
+                    <a href="@Url.Action("ExitManager","Admin")"><i class="fa fa-balance-scale fa-fw"></i> Employee Exit</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+}
+<!-- /.navbar-static-->
+@*<li>
+        <a href="@Url.Action("Profile/Employment","Applicant")">Work Experience</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Profile/Certification","Applicant")">Certifications</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Profile/Overview","Applicant")">Complete Profile</a>
+    </li>*@

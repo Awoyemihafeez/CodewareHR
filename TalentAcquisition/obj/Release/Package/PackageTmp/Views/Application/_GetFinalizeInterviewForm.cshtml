@@ -1,0 +1,169 @@
+﻿@model TalentAcquisition.Core.Domain.Interview
+@using TalentAcquisition.Core.Domain;
+
+<link rel="stylesheet" href="~/Content/jquery.timepicker.css" type="text/css" />
+<div class="row">
+    <div class="col-md-6">
+        <h4>Interview Team</h4>
+        <hr/>
+        <div class="row container">
+            @foreach (var item in (List<Employee>)ViewBag.teamMembers)
+            {
+                <p><img src="~/Uploads/passport.png" width="40" height="40" style="border-radius:50%" />   <b>@item.FullName</b></p>
+            }
+        </div>
+    </div>
+    <div class="col-md-6">
+    @using (Html.BeginForm("_SubmitInterviewSchedulingForm", "Application", FormMethod.Post, new { @class = "schform", @id = "schform" }))
+    {
+        <style>
+        /*textarea{
+            
+            width:70%;
+        }*/
+        /*label{
+            font-size:70%;
+        }*/
+      
+    </style>
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.InterviewID);
+    <div class="form-horizontal">
+        <div class="form-group hidden">
+            @Html.DisplayFor(model => model.InterviewID)
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <div class="col-sm-5">
+                    Venue
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" value="" required id="Venue" name="Venue" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <div class="col-sm-5">Chosen Date</div>
+                <div class="col-sm-7">
+                    <input type="text" value="@Model.ScheduledDate" data-date-format="DD-MM-YYYY" id="ScheduledDate" name="ScheduledDate" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+                <div class="col-sm-12">
+                    <div class="col-sm-5">Scheduled Time</div>
+                    <div class="col-sm-7">
+                        <input type="text" value="" id="Time" name="Time" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        <div class="form-group"> 
+            <div class="col-sm-12">
+                @*@Html.Label("Final Details", htmlAttributes: new { @class = "control-label col-md-4" })*@
+                <div class="col-sm-5">Additional Details</div>
+                <div class="col-sm-7">
+                    <textarea name="SchedulingFinalNote" id="SchedulingFinalNote" rows="4" class="form-control" value="" placeholder="">@Model.SchedulingFinalNote</textarea>
+                    @Html.ValidationMessage("FinalInformation", "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+            @*<div class="form-group">
+                <div class="col-sm-12">
+                       <label class="col-sm-5">Additional Details</label>
+                    <div class="col-sm-7">
+                        <textarea name="SchedulingFinalNote" id="SchedulingFinalNote" rows="4" class="form-control" value="" placeholder="">@Model.SchedulingFinalNote</textarea>
+                        @Html.ValidationMessage("FinalInformation", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="col-sm-5"></label>
+                    <div class="col-sm-7">
+                        <input type="submit" value="Send Invitation" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+</div>
+@Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/jquery.timepicker.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        
+        $('#Time').timepicker();
+        var form = $("#schform");
+        form.submit(function (e) {
+            var input1 = $("#ProposedDate1");
+            var input2 = $("#ProposedDate2");
+            if ((input1.val() == "") || (input1.val() == "")) {
+
+                //input1.closest("span").append("Enter Date").show();
+                return false;
+            }
+            e.preventDefault();
+            $.ajax({
+                type:"POST",
+                url:form.attr("action"),
+                data:form.serialize(),
+                success: function (data) {
+                    if (data)
+                        alert("Success");
+                },
+                error:function(error){
+                    alert("Error");
+                }
+            });
+        });
+
+        $("#form").validate({
+            errorClass: 'help-block animation-slideDown', // You can change the animation class for a different entrance animation - check animations page
+            errorElement: 'div',
+            errorPlacement: function (error, e) {
+                e.parents('.form-group > div').append(error);
+            },
+            highlight: function (e) {
+
+                $(e).closest('.form-group').removeClass('has-success has-error').addClass('has-error');
+                $(e).closest('.help-block').remove();
+            },
+            success: function (e) {
+                e.closest('.form-group').removeClass('has-success has-error');
+                e.closest('.help-block').remove();
+            },
+            rules: {
+                'ProposedDate1': {
+                    required: true
+                    //date: true
+                }
+
+                //'Password': {
+                //    required: true,
+                //    minlength: 6
+                //},
+
+                //'ConfirmPassword': {
+                //    required: true,
+                //    equalTo: '#Password'
+                //}
+            },
+            messages: {
+                'ProposedDate1': 'Please enter valid Date'
+
+                //'Password': {
+                //    required: 'Please provide a password',
+                //    minlength: 'Your password must be at least 6 characters long'
+                //},
+
+                //'ConfirmPassword': {
+                //    required: 'Please provide a password',
+                //    minlength: 'Your password must be at least 6 characters long',
+                //    equalTo: 'Please enter the same password as above'
+                //}
+            }
+        });
+    });
+</script>

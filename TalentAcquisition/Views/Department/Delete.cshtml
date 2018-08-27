@@ -1,0 +1,77 @@
+﻿@model TalentAcquisition.Core.Domain.Department
+
+@{
+    ViewBag.Title = "Delete Department";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="mainbody">
+    <div class="container-fluid">
+        <div class="col-md-3">
+            <div class="container">
+                <ul class="nav">
+                    @Html.Partial("_AdminDashboardSidebar")
+                </ul>
+            </div>
+        </div>
+
+        
+        <section class="container body-content">
+            <div class="row">
+                <div class="col-md-9" style="margin-top:5em">
+                    <div class="panel panel-primary" style="height:500px">
+                        <div class="panel-heading">
+                            <p class="panel-title">
+                                <a data-toggle="collapse" href="#main" style="text-decoration:none">  Delete Department</a>
+                            </p>
+                        </div>
+                        <div class="panel-body" style="text-align:center;padding-top:10em;margin-top:2em">
+
+
+                            @*<h5 style="color:dimgrey"><i>Are you sure you want to delete this?</i></h5>*@
+                            <div>
+
+                                <br />
+                                <div class="form-horizontal">
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4"> Department </label>
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.DepartmentName, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.DepartmentName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                @*<dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.DepartmentName)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.DepartmentName)
+                                    </dd>
+
+                                </dl>*@
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-actions" style="text-align:center;padding-right:8em;margin-top:1em">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Delete" class="btn btn-outline btn-danger" />
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        </div>
+
+   
+</section>

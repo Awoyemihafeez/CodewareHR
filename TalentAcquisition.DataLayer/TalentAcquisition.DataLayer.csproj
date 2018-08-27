@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{526BD282-AB06-4F44-A5A5-6F5461E83864}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TalentAcquisition.DataLayer</RootNamespace>
+    <AssemblyName>TalentAcquisition.DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\UsersAndRoles\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\UsersAndRoles\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\UsersAndRoles\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\UsersAndRoles\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\UsersAndRoles\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\UsersAndRoles\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\UsersAndRoles\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppManager.cs" />
+    <Compile Include="IdentityManager.cs" />
+    <Compile Include="JobsContext.cs" />
+    <Compile Include="LoginContext.cs" />
+    <Compile Include="Migrations\201801021312577_InitialCreate.cs" />
+    <Compile Include="Migrations\201801021312577_InitialCreate.Designer.cs">
+      <DependentUpon>201801021312577_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801041038482_UpdatedModel.cs" />
+    <Compile Include="Migrations\201801041038482_UpdatedModel.Designer.cs">
+      <DependentUpon>201801041038482_UpdatedModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801050741579_updatedJobRequisitionModel.cs" />
+    <Compile Include="Migrations\201801050741579_updatedJobRequisitionModel.Designer.cs">
+      <DependentUpon>201801050741579_updatedJobRequisitionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801051156487_UpdatedSearch.cs" />
+    <Compile Include="Migrations\201801051156487_UpdatedSearch.Designer.cs">
+      <DependentUpon>201801051156487_UpdatedSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801080908206_progressmodel.cs" />
+    <Compile Include="Migrations\201801080908206_progressmodel.Designer.cs">
+      <DependentUpon>201801080908206_progressmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801090748024_updatedcontext.cs" />
+    <Compile Include="Migrations\201801090748024_updatedcontext.Designer.cs">
+      <DependentUpon>201801090748024_updatedcontext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801090800593_updatedcontextagain.cs" />
+    <Compile Include="Migrations\201801090800593_updatedcontextagain.Designer.cs">
+      <DependentUpon>201801090800593_updatedcontextagain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801111501560_updatedSchool.cs" />
+    <Compile Include="Migrations\201801111501560_updatedSchool.Designer.cs">
+      <DependentUpon>201801111501560_updatedSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801150935406_updatedCertificationModel.cs" />
+    <Compile Include="Migrations\201801150935406_updatedCertificationModel.Designer.cs">
+      <DependentUpon>201801150935406_updatedCertificationModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801150954591_updatedCertificationModelagain.cs" />
+    <Compile Include="Migrations\201801150954591_updatedCertificationModelagain.Designer.cs">
+      <DependentUpon>201801150954591_updatedCertificationModelagain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801220830487_updateJobseekerModel.cs" />
+    <Compile Include="Migrations\201801220830487_updateJobseekerModel.Designer.cs">
+      <DependentUpon>201801220830487_updateJobseekerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801221143488_updateJobApplicationModel.cs" />
+    <Compile Include="Migrations\201801221143488_updateJobApplicationModel.Designer.cs">
+      <DependentUpon>201801221143488_updateJobApplicationModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801230650551_changedApplicantSpecializationType.cs" />
+    <Compile Include="Migrations\201801230650551_changedApplicantSpecializationType.Designer.cs">
+      <DependentUpon>201801230650551_changedApplicantSpecializationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802051544211_addedNoteAttributeToInterviewClass.cs" />
+    <Compile Include="Migrations\201802051544211_addedNoteAttributeToInterviewClass.Designer.cs">
+      <DependentUpon>201802051544211_addedNoteAttributeToInterviewClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802120757547_addedKeyToInterviewDetail.cs" />
+    <Compile Include="Migrations\201802120757547_addedKeyToInterviewDetail.Designer.cs">
+      <DependentUpon>201802120757547_addedKeyToInterviewDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802121150023_addedNoteToJobRequisition.cs" />
+    <Compile Include="Migrations\201802121150023_addedNoteToJobRequisition.Designer.cs">
+      <DependentUpon>201802121150023_addedNoteToJobRequisition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802131024370_addedSkillModel.cs" />
+    <Compile Include="Migrations\201802131024370_addedSkillModel.Designer.cs">
+      <DependentUpon>201802131024370_addedSkillModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802131316251_addedVirtual.cs" />
+    <Compile Include="Migrations\201802131316251_addedVirtual.Designer.cs">
+      <DependentUpon>201802131316251_addedVirtual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802131437124_addedVirtual1.cs" />
+    <Compile Include="Migrations\201802131437124_addedVirtual1.Designer.cs">
+      <DependentUpon>201802131437124_addedVirtual1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802151402418_addedQualificationsToRequisitions.cs" />
+    <Compile Include="Migrations\201802151402418_addedQualificationsToRequisitions.Designer.cs">
+      <DependentUpon>201802151402418_addedQualificationsToRequisitions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803061444395_UpdatedOfficePositionModel.cs" />
+    <Compile Include="Migrations\201803061444395_UpdatedOfficePositionModel.Designer.cs">
+      <DependentUpon>201803061444395_UpdatedOfficePositionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803061514449_UpdatedOfficePositionModel2.cs" />
+    <Compile Include="Migrations\201803061514449_UpdatedOfficePositionModel2.Designer.cs">
+      <DependentUpon>201803061514449_UpdatedOfficePositionModel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803070824186_updatedjobqualificationclass.cs" />
+    <Compile Include="Migrations\201803070824186_updatedjobqualificationclass.Designer.cs">
+      <DependentUpon>201803070824186_updatedjobqualificationclass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803071043353_updatedRequirementclass.cs" />
+    <Compile Include="Migrations\201803071043353_updatedRequirementclass.Designer.cs">
+      <DependentUpon>201803071043353_updatedRequirementclass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803121621530_newman.cs" />
+    <Compile Include="Migrations\201803121621530_newman.Designer.cs">
+      <DependentUpon>201803121621530_newman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803141107003_AddedFieldsToJobRequisition.cs" />
+    <Compile Include="Migrations\201803141107003_AddedFieldsToJobRequisition.Designer.cs">
+      <DependentUpon>201803141107003_AddedFieldsToJobRequisition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803261341324_InteviewEvaluationModelAdded.cs" />
+    <Compile Include="Migrations\201803261341324_InteviewEvaluationModelAdded.Designer.cs">
+      <DependentUpon>201803261341324_InteviewEvaluationModelAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803270741515_UpdatedNada.cs" />
+    <Compile Include="Migrations\201803270741515_UpdatedNada.Designer.cs">
+      <DependentUpon>201803270741515_UpdatedNada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803290921484_AddedModelsForOnboarding.cs" />
+    <Compile Include="Migrations\201803290921484_AddedModelsForOnboarding.Designer.cs">
+      <DependentUpon>201803290921484_AddedModelsForOnboarding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803291135341_UpdatedModelsForOnboarding.cs" />
+    <Compile Include="Migrations\201803291135341_UpdatedModelsForOnboarding.Designer.cs">
+      <DependentUpon>201803291135341_UpdatedModelsForOnboarding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804031255505_ModifiedWelcomeGuideModel.cs" />
+    <Compile Include="Migrations\201804031255505_ModifiedWelcomeGuideModel.Designer.cs">
+      <DependentUpon>201804031255505_ModifiedWelcomeGuideModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804291536585_ModifiedOnboardingRelatedModels.cs" />
+    <Compile Include="Migrations\201804291536585_ModifiedOnboardingRelatedModels.Designer.cs">
+      <DependentUpon>201804291536585_ModifiedOnboardingRelatedModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804300735443_UpdatedCompletedActivityModel.cs" />
+    <Compile Include="Migrations\201804300735443_UpdatedCompletedActivityModel.Designer.cs">
+      <DependentUpon>201804300735443_UpdatedCompletedActivityModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804301043392_UpdatedWelcomeIDinCompletedActivityModel.cs" />
+    <Compile Include="Migrations\201804301043392_UpdatedWelcomeIDinCompletedActivityModel.Designer.cs">
+      <DependentUpon>201804301043392_UpdatedWelcomeIDinCompletedActivityModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804301612240_AddedEvaluationCategoryModel.cs" />
+    <Compile Include="Migrations\201804301612240_AddedEvaluationCategoryModel.Designer.cs">
+      <DependentUpon>201804301612240_AddedEvaluationCategoryModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805021347063_UpdatedCompletedActivityModel1.cs" />
+    <Compile Include="Migrations\201805021347063_UpdatedCompletedActivityModel1.Designer.cs">
+      <DependentUpon>201805021347063_UpdatedCompletedActivityModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805031042318_UpdatedEvaluationCategoryAndInterviewModel.cs" />
+    <Compile Include="Migrations\201805031042318_UpdatedEvaluationCategoryAndInterviewModel.Designer.cs">
+      <DependentUpon>201805031042318_UpdatedEvaluationCategoryAndInterviewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805031200054_UpdatedMetricOfficeAndInterviewModel.cs" />
+    <Compile Include="Migrations\201805031200054_UpdatedMetricOfficeAndInterviewModel.Designer.cs">
+      <DependentUpon>201805031200054_UpdatedMetricOfficeAndInterviewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805100928244_UpdatedInterviewModelandAppStatus.cs" />
+    <Compile Include="Migrations\201805100928244_UpdatedInterviewModelandAppStatus.Designer.cs">
+      <DependentUpon>201805100928244_UpdatedInterviewModelandAppStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805141402044_UpdatedRelationshipBetweenJobApplicationAndInterview.cs" />
+    <Compile Include="Migrations\201805141402044_UpdatedRelationshipBetweenJobApplicationAndInterview.Designer.cs">
+      <DependentUpon>201805141402044_UpdatedRelationshipBetweenJobApplicationAndInterview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805201302497_updatedapplicationmodel.cs" />
+    <Compile Include="Migrations\201805201302497_updatedapplicationmodel.Designer.cs">
+      <DependentUpon>201805201302497_updatedapplicationmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805201803064_m1.cs" />
+    <Compile Include="Migrations\201805201803064_m1.Designer.cs">
+      <DependentUpon>201805201803064_m1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805221548393_noupdate.cs" />
+    <Compile Include="Migrations\201805221548393_noupdate.Designer.cs">
+      <DependentUpon>201805221548393_noupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805230841474_updatedInterviewModel.cs" />
+    <Compile Include="Migrations\201805230841474_updatedInterviewModel.Designer.cs">
+      <DependentUpon>201805230841474_updatedInterviewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805312322357_addedpassportdetailstopersonmodel.cs" />
+    <Compile Include="Migrations\201805312322357_addedpassportdetailstopersonmodel.Designer.cs">
+      <DependentUpon>201805312322357_addedpassportdetailstopersonmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806180938486_AddedNextOfKinDetailsToEmployeeModel.cs" />
+    <Compile Include="Migrations\201806180938486_AddedNextOfKinDetailsToEmployeeModel.Designer.cs">
+      <DependentUpon>201806180938486_AddedNextOfKinDetailsToEmployeeModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806241629027_AddedIdentityModels.cs" />
+    <Compile Include="Migrations\201806241629027_AddedIdentityModels.Designer.cs">
+      <DependentUpon>201806241629027_AddedIdentityModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806261248218_AddedGrievanceModelsToContext.cs" />
+    <Compile Include="Migrations\201806261248218_AddedGrievanceModelsToContext.Designer.cs">
+      <DependentUpon>201806261248218_AddedGrievanceModelsToContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806271143304_AddedDisciplinaryModels.cs" />
+    <Compile Include="Migrations\201806271143304_AddedDisciplinaryModels.Designer.cs">
+      <DependentUpon>201806271143304_AddedDisciplinaryModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806280806274_AddedTrainingModels.cs" />
+    <Compile Include="Migrations\201806280806274_AddedTrainingModels.Designer.cs">
+      <DependentUpon>201806280806274_AddedTrainingModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806281217441_AddedCashModels.cs" />
+    <Compile Include="Migrations\201806281217441_AddedCashModels.Designer.cs">
+      <DependentUpon>201806281217441_AddedCashModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806281424209_AddedAppraisalKPIModels.cs" />
+    <Compile Include="Migrations\201806281424209_AddedAppraisalKPIModels.Designer.cs">
+      <DependentUpon>201806281424209_AddedAppraisalKPIModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806302040082_updatedGrievanceReportModel.cs" />
+    <Compile Include="Migrations\201806302040082_updatedGrievanceReportModel.Designer.cs">
+      <DependentUpon>201806302040082_updatedGrievanceReportModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807030916442_updatedCashRequisitionModel.cs" />
+    <Compile Include="Migrations\201807030916442_updatedCashRequisitionModel.Designer.cs">
+      <DependentUpon>201807030916442_updatedCashRequisitionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807031437593_UpdateCashModel.cs" />
+    <Compile Include="Migrations\201807031437593_UpdateCashModel.Designer.cs">
+      <DependentUpon>201807031437593_UpdateCashModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807041040413_AddedSomeModels.cs" />
+    <Compile Include="Migrations\201807041040413_AddedSomeModels.Designer.cs">
+      <DependentUpon>201807041040413_AddedSomeModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807041059118_removedIndexfromEmployee.cs" />
+    <Compile Include="Migrations\201807041059118_removedIndexfromEmployee.Designer.cs">
+      <DependentUpon>201807041059118_removedIndexfromEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807051024255_UpdatedPerformanceModels.cs" />
+    <Compile Include="Migrations\201807051024255_UpdatedPerformanceModels.Designer.cs">
+      <DependentUpon>201807051024255_UpdatedPerformanceModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807061330275_UpdatedAppraisalKPIModel.cs" />
+    <Compile Include="Migrations\201807061330275_UpdatedAppraisalKPIModel.Designer.cs">
+      <DependentUpon>201807061330275_UpdatedAppraisalKPIModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807211912534_AddedModelsForEmployeeExit.cs" />
+    <Compile Include="Migrations\201807211912534_AddedModelsForEmployeeExit.Designer.cs">
+      <DependentUpon>201807211912534_AddedModelsForEmployeeExit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807251015097_AddedDisabledFieldToEmployeeTable.cs" />
+    <Compile Include="Migrations\201807251015097_AddedDisabledFieldToEmployeeTable.Designer.cs">
+      <DependentUpon>201807251015097_AddedDisabledFieldToEmployeeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807270947563_addedLeaveb4merge.cs" />
+    <Compile Include="Migrations\201807270947563_addedLeaveb4merge.Designer.cs">
+      <DependentUpon>201807270947563_addedLeaveb4merge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807300949538_AddedLeaveResumptionModule.cs" />
+    <Compile Include="Migrations\201807300949538_AddedLeaveResumptionModule.Designer.cs">
+      <DependentUpon>201807300949538_AddedLeaveResumptionModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301025063_AddedFieldsToLeaveResumptionModule.cs" />
+    <Compile Include="Migrations\201807301025063_AddedFieldsToLeaveResumptionModule.Designer.cs">
+      <DependentUpon>201807301025063_AddedFieldsToLeaveResumptionModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807310918223_UpdatedLeaveTypeLimitModel.cs" />
+    <Compile Include="Migrations\201807310918223_UpdatedLeaveTypeLimitModel.Designer.cs">
+      <DependentUpon>201807310918223_UpdatedLeaveTypeLimitModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TalentContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TalentAcquisition.BusinessLogic\TalentAcquisition.BusinessLogic.csproj">
+      <Project>{ec5d80ef-25be-42d2-9e24-4cfac0b41374}</Project>
+      <Name>TalentAcquisition.BusinessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801021312577_InitialCreate.resx">
+      <DependentUpon>201801021312577_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801041038482_UpdatedModel.resx">
+      <DependentUpon>201801041038482_UpdatedModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801050741579_updatedJobRequisitionModel.resx">
+      <DependentUpon>201801050741579_updatedJobRequisitionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801051156487_UpdatedSearch.resx">
+      <DependentUpon>201801051156487_UpdatedSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801080908206_progressmodel.resx">
+      <DependentUpon>201801080908206_progressmodel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801090748024_updatedcontext.resx">
+      <DependentUpon>201801090748024_updatedcontext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801090800593_updatedcontextagain.resx">
+      <DependentUpon>201801090800593_updatedcontextagain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801111501560_updatedSchool.resx">
+      <DependentUpon>201801111501560_updatedSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801150935406_updatedCertificationModel.resx">
+      <DependentUpon>201801150935406_updatedCertificationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801150954591_updatedCertificationModelagain.resx">
+      <DependentUpon>201801150954591_updatedCertificationModelagain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801220830487_updateJobseekerModel.resx">
+      <DependentUpon>201801220830487_updateJobseekerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801221143488_updateJobApplicationModel.resx">
+      <DependentUpon>201801221143488_updateJobApplicationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801230650551_changedApplicantSpecializationType.resx">
+      <DependentUpon>201801230650551_changedApplicantSpecializationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802051544211_addedNoteAttributeToInterviewClass.resx">
+      <DependentUpon>201802051544211_addedNoteAttributeToInterviewClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802120757547_addedKeyToInterviewDetail.resx">
+      <DependentUpon>201802120757547_addedKeyToInterviewDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802121150023_addedNoteToJobRequisition.resx">
+      <DependentUpon>201802121150023_addedNoteToJobRequisition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802131024370_addedSkillModel.resx">
+      <DependentUpon>201802131024370_addedSkillModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802131316251_addedVirtual.resx">
+      <DependentUpon>201802131316251_addedVirtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802131437124_addedVirtual1.resx">
+      <DependentUpon>201802131437124_addedVirtual1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802151402418_addedQualificationsToRequisitions.resx">
+      <DependentUpon>201802151402418_addedQualificationsToRequisitions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061444395_UpdatedOfficePositionModel.resx">
+      <DependentUpon>201803061444395_UpdatedOfficePositionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061514449_UpdatedOfficePositionModel2.resx">
+      <DependentUpon>201803061514449_UpdatedOfficePositionModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803070824186_updatedjobqualificationclass.resx">
+      <DependentUpon>201803070824186_updatedjobqualificationclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803071043353_updatedRequirementclass.resx">
+      <DependentUpon>201803071043353_updatedRequirementclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803121621530_newman.resx">
+      <DependentUpon>201803121621530_newman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803141107003_AddedFieldsToJobRequisition.resx">
+      <DependentUpon>201803141107003_AddedFieldsToJobRequisition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261341324_InteviewEvaluationModelAdded.resx">
+      <DependentUpon>201803261341324_InteviewEvaluationModelAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803270741515_UpdatedNada.resx">
+      <DependentUpon>201803270741515_UpdatedNada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803290921484_AddedModelsForOnboarding.resx">
+      <DependentUpon>201803290921484_AddedModelsForOnboarding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803291135341_UpdatedModelsForOnboarding.resx">
+      <DependentUpon>201803291135341_UpdatedModelsForOnboarding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804031255505_ModifiedWelcomeGuideModel.resx">
+      <DependentUpon>201804031255505_ModifiedWelcomeGuideModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804291536585_ModifiedOnboardingRelatedModels.resx">
+      <DependentUpon>201804291536585_ModifiedOnboardingRelatedModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804300735443_UpdatedCompletedActivityModel.resx">
+      <DependentUpon>201804300735443_UpdatedCompletedActivityModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804301043392_UpdatedWelcomeIDinCompletedActivityModel.resx">
+      <DependentUpon>201804301043392_UpdatedWelcomeIDinCompletedActivityModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804301612240_AddedEvaluationCategoryModel.resx">
+      <DependentUpon>201804301612240_AddedEvaluationCategoryModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805021347063_UpdatedCompletedActivityModel1.resx">
+      <DependentUpon>201805021347063_UpdatedCompletedActivityModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805031042318_UpdatedEvaluationCategoryAndInterviewModel.resx">
+      <DependentUpon>201805031042318_UpdatedEvaluationCategoryAndInterviewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805031200054_UpdatedMetricOfficeAndInterviewModel.resx">
+      <DependentUpon>201805031200054_UpdatedMetricOfficeAndInterviewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100928244_UpdatedInterviewModelandAppStatus.resx">
+      <DependentUpon>201805100928244_UpdatedInterviewModelandAppStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805141402044_UpdatedRelationshipBetweenJobApplicationAndInterview.resx">
+      <DependentUpon>201805141402044_UpdatedRelationshipBetweenJobApplicationAndInterview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805201302497_updatedapplicationmodel.resx">
+      <DependentUpon>201805201302497_updatedapplicationmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805201803064_m1.resx">
+      <DependentUpon>201805201803064_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805221548393_noupdate.resx">
+      <DependentUpon>201805221548393_noupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805230841474_updatedInterviewModel.resx">
+      <DependentUpon>201805230841474_updatedInterviewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805312322357_addedpassportdetailstopersonmodel.resx">
+      <DependentUpon>201805312322357_addedpassportdetailstopersonmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806180938486_AddedNextOfKinDetailsToEmployeeModel.resx">
+      <DependentUpon>201806180938486_AddedNextOfKinDetailsToEmployeeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806241629027_AddedIdentityModels.resx">
+      <DependentUpon>201806241629027_AddedIdentityModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806261248218_AddedGrievanceModelsToContext.resx">
+      <DependentUpon>201806261248218_AddedGrievanceModelsToContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806271143304_AddedDisciplinaryModels.resx">
+      <DependentUpon>201806271143304_AddedDisciplinaryModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806280806274_AddedTrainingModels.resx">
+      <DependentUpon>201806280806274_AddedTrainingModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281217441_AddedCashModels.resx">
+      <DependentUpon>201806281217441_AddedCashModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281424209_AddedAppraisalKPIModels.resx">
+      <DependentUpon>201806281424209_AddedAppraisalKPIModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806302040082_updatedGrievanceReportModel.resx">
+      <DependentUpon>201806302040082_updatedGrievanceReportModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807030916442_updatedCashRequisitionModel.resx">
+      <DependentUpon>201807030916442_updatedCashRequisitionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807031437593_UpdateCashModel.resx">
+      <DependentUpon>201807031437593_UpdateCashModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807041040413_AddedSomeModels.resx">
+      <DependentUpon>201807041040413_AddedSomeModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807041059118_removedIndexfromEmployee.resx">
+      <DependentUpon>201807041059118_removedIndexfromEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807051024255_UpdatedPerformanceModels.resx">
+      <DependentUpon>201807051024255_UpdatedPerformanceModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807061330275_UpdatedAppraisalKPIModel.resx">
+      <DependentUpon>201807061330275_UpdatedAppraisalKPIModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807211912534_AddedModelsForEmployeeExit.resx">
+      <DependentUpon>201807211912534_AddedModelsForEmployeeExit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807251015097_AddedDisabledFieldToEmployeeTable.resx">
+      <DependentUpon>201807251015097_AddedDisabledFieldToEmployeeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807270947563_addedLeaveb4merge.resx">
+      <DependentUpon>201807270947563_addedLeaveb4merge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807300949538_AddedLeaveResumptionModule.resx">
+      <DependentUpon>201807300949538_AddedLeaveResumptionModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301025063_AddedFieldsToLeaveResumptionModule.resx">
+      <DependentUpon>201807301025063_AddedFieldsToLeaveResumptionModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310918223_UpdatedLeaveTypeLimitModel.resx">
+      <DependentUpon>201807310918223_UpdatedLeaveTypeLimitModel.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54385</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54385/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,498 @@
+﻿@model TalentAcquisition.Core.Domain.OfficePosition
+@{
+    ViewBag.Title = "Edit Job";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="mainbody" style="overflow-x:hidden">
+    <div class="container-fluid" @*style="margin-top:50px"*@>
+        <div class="col-md-3">
+            <div class="container">
+                <ul class="nav">
+                    @Html.Partial("_AdminDashboardSidebar")
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9" style="width: 81%;margin-top: 1em; margin-left: 21em;">
+            <div style="padding-top:2em;"></div>
+            <p style="font-family: 'Fira Mono';font-size: 22px;">Edit Job</p>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Dashboard", "Admin")">Home</a></li>
+                <li><a href="@Url.Action("Jobmanager", "Admin")">Job Manager</a></li>
+                <li class="active">Job</li>
+                <li class="active">@Model.Title</li>
+            </ol>
+            <section class="container-fluid" style="margin-top:1em">
+                <div class="container-fluid" style="margin-bottom:1em">
+                    <a href="javascript:void()" id="submitjob" style="padding:0.6em; border-radius:10px" class="btn btn-default btn-xs"><img src="~/Assets/Icons/File-Plus.png" width="20" />Save</a>
+                    <a href="javascript:void()" id="reqjob" style="padding:0.6em; border-radius:10px" class="btn btn-default btn-xs"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Requisition</a>
+                </div>
+
+
+                <div class="row" style="font-size:80%">
+                    <div class="row">
+                        <span class="alert-success">@ViewBag.Message</span>
+                    </div>
+                    <form action="" method="post" id="editform" enctype="multipart/form-data" ng-controller="JobController" ng-init="init()">
+                        <style>
+                            select {
+                                padding: 0;
+                                margin: 0;
+                                width: 100%;
+                                min-width: 100%;
+                                font-size: 80%;
+                            }
+
+                            .form-group {
+                                padding-bottom: -1.0em;
+                                margin-bottom: 0.4em;
+                            }
+
+                            textarea {
+                                margin-top: -2em;
+                                padding-top: -2em;
+                            }
+
+                            input {
+                                margin: 0;
+                                padding: 0;
+                            }
+
+                            label {
+                                font-size: 90%;
+                            }
+                        </style>
+
+                        @*<br />
+                    <div class="container-fluid" style="margin-left:1.5em;margin-bottom:1em">
+                        <input type="submit" style="padding:0.6em;  border-radius:10px" class="btn btn-default btn-xs" value="Save Changes" />
+                    </div>*@
+
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="panel panel-default" style="margin-left:1.5em;    width: 97.3%;margin-bottom:0.5em;overflow:hidden">
+                            <div class="panel-heading">
+                                <p class="panel-title">
+                                    <a data-toggle="collapse" href="#main1" style="text-decoration:none"> <h5 style="font-weight:bold"> Job Details</h5></a>
+                                </p>
+                            </div>
+                            <div id="main1" class="panel-collapse collapse in">
+                                <div class="panel-body" style="margin-bottom:-1.5em;padding-bottom:30px">
+                                    <div class="form-horizontal">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="">
+                                            @*<div class="row"></div>
+                                        <div class="row"></div>
+                                        <div class="row"></div>
+                                        <div class="row"></div>*@
+
+
+
+                                            @*first col in job details*@
+                                            @*<div style="" class="col-md-12 col-lg-6">*@
+                                            @*<div class="form-group">
+
+
+                                                <label>Job ID</label>
+
+                                                @Html.EditorFor(model => model.JobID, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                                                @Html.ValidationMessageFor(model => model.JobID, "", new { @class = "text-danger" })
+
+                                        </div>*@
+                                            <div class="col-md-6">
+
+                                                <div class="form-group" style=" width: 900px; padding-left: 24px">
+                                                    @Html.LabelFor(model => model.JobID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.JobID, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.JobID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style=" width: 900px; padding-left: 24px">
+                                                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style=" width: 900px; padding-left: 24px;padding-bottom:0.5em">
+                                                    @Html.LabelFor(model => model.Posts, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.Posts, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Posts, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style=" width: 900px; padding-left: 24px">
+                                                    @Html.LabelFor(model => model.JobDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.JobDescription, new { htmlAttributes = new { @class = "form-control ", @style = "height:60px" } })
+                                                        @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @*<div class="form-group">
+
+
+                                                                                                <label>Job Title</label>
+
+                                                                                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                                                                                                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+
+                                        </div>
+                                                                                                    <br />*@
+
+                                            @*<div class="form-group">
+
+                                                <label>Post (s)</label>
+
+
+                                                @Html.EditorFor(model => model.Posts, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                                                @Html.ValidationMessageFor(model => model.Reqirements, "", new { @class = "text-danger" })
+
+                                        </div>*@
+                                            @*<br />
+
+                                        <label>Job Description</label>
+                                        <div style="height:">
+                                            @Html.EditorFor(model => model.JobDescription, new { htmlAttributes = new { @class = "form-control ", @style = "height:50px" } })
+                                            @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
+                                        </div>
+                                        <br />*@
+
+                                            @*
+                                              <label>job description</label>
+
+                                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+
+
+                                           @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })*@
+
+
+
+
+
+
+                                            @*second col in job details*@
+                                            <div class="col-md-6">
+
+                                                <div class="form-group" style=" width: 900px; padding-left: 24px">
+                                                    @Html.LabelFor(model => model.MainObjective, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.MainObjective, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.MainObjective, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                @*<label>Main Objective</label>
+
+                                            @Html.EditorFor(model => model.MainObjective, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.MainObjective, "", new { @class = "text-danger" })*@
+                                                <div class="form-group" style=" width: 900px; padding-left: 24px">
+                                                    @Html.LabelFor(model => model.IndustryID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-4">
+                                                        @Html.DropDownList("IndustryID", new SelectList(ViewBag.Industries, "IndustryId", "Name"), "", htmlAttributes: new { @class = "form-control input-sm" })
+                                                        @Html.ValidationMessageFor(model => model.IndustryID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                @*<div class="col-md-10">
+                                                <label>Industry</label>
+
+                                                @Html.DropDownList("IndustryID", new SelectList(ViewBag.Industries, "IndustryId", "Name"), "", htmlAttributes: new { @class = "form-control input-sm" })
+                                                @Html.ValidationMessageFor(model => model.IndustryID, "", new { @class = "text-danger" })
+                                            </div>
+                                            <br />*@
+                                                <div class="form-group" style=" width: 900px; padding-left: 24px">
+                                                    @Html.LabelFor(model => model.DepartmentID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-4">
+                                                        @Html.DropDownList("DepartmentID", new SelectList(ViewBag.Departments, "DepartmentID", "DepartmentName"), "", htmlAttributes: new { @class = "form-control input-sm" })
+                                                        @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                @*<div class="col-md-10">
+                                                <label>Department</label>
+
+                                                @Html.DropDownList("DepartmentID", new SelectList(ViewBag.Departments, "DepartmentID", "DepartmentName"), "", htmlAttributes: new { @class = "form-control input-sm" })
+                                                @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger" })
+                                                <br />
+                                            </div>*@
+                                                <div class="form-group" style=" width: 900px; padding-left: 24px">
+                                                    @Html.LabelFor(model => model.SupervisorID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-4">
+
+                                                        @Html.DropDownList("SupervisorID", new SelectList(ViewBag.Positions, "OfficePositionID", "Title"), "", htmlAttributes: new { @class = "form-control input-sm" })
+                                                        @Html.ValidationMessageFor(model => model.SupervisorID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                @*<div class="col-md-10">
+                                                <label>Position Reporting To</label>
+
+                                                @Html.DropDownList("SupervisorID", new SelectList(ViewBag.Positions, "OfficePositionID", "Title"), "", htmlAttributes: new { @class = "form-control input-sm" })
+                                                @Html.ValidationMessageFor(model => model.SupervisorID, "", new { @class = "text-danger" })
+                                            </div>
+                                            <br>*@
+                                                <div class="form-group" style=" width: 900px; padding-left: 24px">
+                                                    @Html.LabelFor(model => model.DepartmentID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-4">
+
+                                                        @Html.DropDownList("BranchID", new SelectList(ViewBag.Branches, "BranchId", "Location"), new { @class = "form-control input-sm" })
+                                                        @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                @*<div class="col-md-10">
+                                                <label>Branch</label>
+
+                                                @Html.DropDownList("BranchID", new SelectList(ViewBag.Branches, "BranchId", "Location"), new { @class = "form-control input-sm" })
+                                                @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger" })
+
+                                            </div>*@
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="panel panel-default" style="margin-left:1.5em;    width: 97.3%;margin-bottom:0.5em">
+                            <div class="panel-heading">
+                                <p class="panel-title">
+                                    <a data-toggle="collapse" href="#main2" style="text-decoration:none"><h5 style="font-weight:bold"> Job Requirements</h5> </a>
+                                </p>
+                            </div>
+                            <div id="main2" class="panel-collapse collapse in">
+                                <div class=" panel-body">
+                                    <style>
+                                        #mytable input, #mytable select {
+                                            border: none;
+                                            outline: none;
+                                            box-shadow: none;
+                                            background-color: inherit;
+                                            padding: 0;
+                                            margin: 0;
+                                        }
+                                    </style>
+                                    <a href="javascript:void(0)" ng-click="addJobRequirement()" class=" btn btn-default btn-md" style="margin:0.5em 0em;border-radius:10px;padding:0.6em"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Add</a>
+                                    <div>
+                                        <table id="mytable" class="table table-striped">
+                                            <thead>
+                                                <tr style="font-size:90%">
+                                                    <th>No</th>
+                                                    <th>Code</th>
+                                                    <th>Type</th>
+                                                    <th>Score ID</th>
+                                                    <th>Priority</th>
+                                                    <th>Need Code</th>
+                                                    <th>Stage Code</th>
+                                                    <th>Desired Code</th>
+                                                    <th>Mandatory</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="type in jobreqs" style="font-size:80%">
+                                                    <td>{{$index+1}}</td>
+                                                    <td style="width:10em">
+                                                        <select class="form-control input-sm" name="Line[{{$index}}].QualificationCode" ng-init="type.QualificationCode=SelectedCodes[$index]" ng-model="SelectedCodes[$index]"
+                                                                ng-options="item.QualificationCode for item in codes track by item.QualificationCode" ng-change="codeSelected($index)"></select>
+                                                    </td>
+                                                    @*| filter: {'QualificationCode': SelectedCodes[$index]}*@
+                                                    <td style="width:10em">
+                                                        <select class="form-control" name="Line[{{$index}}].QualificationType" ng-model="type.QualificationType"
+                                                                ng-options="item.QualificationType for item in types | filter: {'QualificationCode': type.QualificationCode} track by item.QualificationType"></select>
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control input-sm" name="Line[{{$index}}].Priority" ng-required="true" ng-model="type.Priority" ng-disabled="!enabledEdit[{{$index}}]" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control input-sm" name="Line[{{$index}}].ScoreID" ng-required="true" ng-model="type.ScoreID" ng-disabled="!enabledEdit[{{$index}}]" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control input-sm" name="Line[{{$index}}].NeedCode" ng-required="true" ng-model="type.NeedCode" ng-disabled="!enabledEdit[{{$index}}]" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control input-sm" name="Line[{{$index}}].StageCode" ng-required="true" ng-model="type.StageCode" ng-disabled="!enabledEdit[{{$index}}]" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control input-sm" name="Line[{{$index}}].DesiredScore" ng-required="true" ng-model="type.DesiredScore" ng-disabled="!enabledEdit[{{$index}}]" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="checkbox" name="Line[{{$index}}].Mandatory" ng-model="type.Mandatory" value="true" />
+                                                        <input type="hidden" class="hidden" name="Line[{{$index}}].Mandatory" value="false" />
+                                                    </td>
+                                                    <td>
+                                                        @*<input type="checkbox" name="Line[{{$index}}].Mandatory" ng-model="type.Mandatory" ng-disabled="!enabledEdit[{{$index}}]" />*@
+                                                        @*<button class="btn btn-primary btn-xs" ng-click="edit($index)">Edit</button>*@
+                                                        <a id="removeitem" href="javascript:void()" ng-click="delete($index)"><img src="~/Assets/Icons/Delete.png" width="20" height="20" class="pull-right" /></a>
+                                                        @*<button class="btn btn-danger btn-xs" ng-click="delete($index)"><img src="~/Assets/Icons/Delete.png" width="20" height="20" class="pull-right" /></button>*@
+                                                    </td>@*<td class="hidden"><input type="text" id="Line[{{$index}}].ID" name="Line[{{$index}}].ID" ng-required="true" value="0" ng-model="type.ID" ng-disabled="!enabledEdit[{{$index}}]" /></td>
+                                                <td class="hidden"><input type="text" id="Line[{{$index}}].OfficePositionID" name="Line[{{$index}}].OfficePositionID" value="0" ng-model="type.OfficePositionID" ng-disabled="!enabledEdit[{{$index}}]" /></td>
+                                                <td class="hidden"><input type="text" id="Line[{{$index}}].QualificationID" name="Line[{{$index}}].QualificationID" value="0" ng-model="type.QualificationID" ng-disabled="!enabledEdit[{{$index}}]" /></td>*@
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*<div class="panel-body">
+                            <a id="additem" href="javascript:void()" class="pull-right btn btn-default btn-xs" style="margin-top:-0.8em"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Add</a>
+                            @Html.Action("_GetRequirementsForEditing",new {requirements= (List<TalentAcquisition.BusinessLogic.UpdatedDomain.JobRequirement>)ViewBag.SelectedRequirements })
+                        </div>*@
+                        </div>
+
+
+                        <div class="panel panel-default" style="margin-left:1.5em;    width: 97.3%;">
+                            <div class="panel-heading">
+                                <p class="panel-title">
+                                    <a data-toggle="collapse" href="#main3" style="text-decoration:none"> <h5 style="font-weight:bold"> Applicant Evaluation Metrics</h5></a>
+                                </p>
+                            </div>
+                            <div id="main3" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <style>
+                                        #mytable input, #mytable select {
+                                            border: none;
+                                            outline: none;
+                                            box-shadow: none;
+                                            background-color: inherit;
+                                            padding: 0;
+                                            margin: 0;
+                                        }
+                                    </style>
+                                    <a href="javascript:void(0)" ng-click="addApplicantEvalMetric()" class=" btn btn-default btn-md" style="margin:0.5em 0em;border-radius:10px;padding:0.6em"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Add</a>
+
+                                    @*<hr/>*@
+                                    @*@Html.Action("_GetRequirements")*@
+                                    <div id="empform">
+                                        <table id="mytable" class="table table-striped">
+                                            <thead>
+                                                <tr style="font-size:90%">
+                                                    <th>No</th>
+                                                    <th>Code</th>
+                                                    <th>Description</th>
+                                                    <th>Maximum Score</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="type in appevals" style="font-size:80%">
+                                                    <td>{{$index+1}}</td>
+                                                    <td>
+                                                        <input class="form-control input-sm" required name="Evals[{{$index}}].EvaluationCode" ng-required="true" ng-model="type.EvaluationCode" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control input-sm" required name="Evals[{{$index}}].EvaluationDescription" ng-required="true" ng-model="type.EvaluationDescription" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" min="1" required class="form-control input-sm" name="Evals[{{$index}}].MaximumScore" ng-model="type.MaximumScore" />
+                                                    </td>
+                                                    <td>
+                                                        @*<input type="checkbox" name="Line[{{$index}}].Mandatory" ng-model="type.Mandatory" ng-disabled="!enabledEdit[{{$index}}]" />*@
+                                                        @*<button class="btn btn-primary btn-xs" ng-click="edit($index)">Edit</button>*@
+                                                        <a id="removeitem" href="javascript:void()" ng-click="delete($index)"><img src="~/Assets/Icons/Delete.png" width="20" height="20" class="pull-right" /></a>
+                                                        @*<button class="btn btn-danger btn-xs" ng-click="delete($index)"><img src="~/Assets/Icons/Delete.png" width="20" height="20" class="pull-right" /></button>*@
+                                                    </td>@*<td class="hidden"><input type="text" id="Line[{{$index}}].ID" name="Line[{{$index}}].ID" ng-required="true" value="0" ng-model="type.ID" ng-disabled="!enabledEdit[{{$index}}]" /></td>
+                                                <td class="hidden"><input type="text" id="Line[{{$index}}].OfficePositionID" name="Line[{{$index}}].OfficePositionID" value="0" ng-model="type.OfficePositionID" ng-disabled="!enabledEdit[{{$index}}]" /></td>
+                                                <td class="hidden"><input type="text" id="Line[{{$index}}].QualificationID" name="Line[{{$index}}].QualificationID" value="0" ng-model="type.QualificationID" ng-disabled="!enabledEdit[{{$index}}]" /></td>*@
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="panel-body">
+                            <a id="addappmetric" href="javascript:void()" class="pull-right btn btn-default btn-xs" style="margin-top:-0.8em"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Add</a>
+                            @Html.Action("_GetApplicantMetrics", new {jobid=Model.OfficePositionID })
+                        </div>*@
+                        </div>
+                </div>
+                @*<div class="panel panel-primary" style="margin-top:-1.7em;">
+                <div class="panel-heading">
+                    Probation Evaluation Metrics
+                </div>
+                <div class="panel-body">
+                    <a id="additem" href="javascript:void()" class="pull-right btn btn-default btn-xs" style="margin-top:-0.8em"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Add</a>
+                     </div>
+            </div>
+            <div class="panel panel-primary" style="margin-top:-1.7em;">
+                <div class="panel-heading">
+                    Job Evaluation Metrics
+                </div>
+                <div class="panel-body">
+                    <a id="additem" href="javascript:void()" class="pull-right btn btn-default btn-xs" style="margin-top:-0.8em"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Add</a>
+                    </div>
+            </div>*@
+                </form>
+
+</div>
+
+            </section>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <script type="text/javascript">
+        codesbs= @Html.Raw(Json.Encode(ViewBag.Codes));
+        typesbs= @Html.Raw(Json.Encode(ViewBag.Types));
+        appevalsbs= @Html.Raw(Json.Encode(ViewBag.ApplicantEvalMetrics));
+        jobreqsbs= @Html.Raw(Json.Encode(ViewBag.JobRequirements));
+
+        $(document).ready(function()
+        {
+            $("#submitjob").on("click", function () {
+                var validated = ValidateForms();
+                if (validated) {
+                    // alert("Checking Form")
+                    $("#editform").submit();
+                }
+                else {
+                    alert("Please Fill All Fields Properly");
+                }
+            });
+            var ValidateForms = function () {
+
+                return true;
+            }
+
+            $("#reqjob").on("click", function () {
+                //$("#editform").attr('url').set();
+                $("#editform").submit();
+
+            });
+
+            $("#editform").submit(function () {
+                var form = $("#editform");
+               // alert(form.serialize().toString());
+                $.ajax(
+                                {
+                                    type: "POST",
+                                    url: form.attr("action"),
+                                    data: form.serialize(),
+                                    success: function (response) {
+
+                                    },
+                                    error: function (error) {
+                                        // alert('failed');
+                                    }
+                                });
+            });
+            @*frm.submit(function (e) {
+
+               e.preventDefault();
+
+                $.ajax({
+                    type: frm.attr('method'),
+                    url: "@(Url.Action("Job/Create","Admin"))",
+                    data: frm.serializeArray()
+                });
+
+            });*@
+        });
+    </script>
+}

@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Manage Requisitions";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $(".collapse.in").each(function () {
+
+            $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
+
+        });
+        $('.panel-heading a').on('click', function (e) {
+            if ($(this).parents('.panel').children('.panel-collapse').hasClass('in')) {
+                e.preventDefault();
+            }
+        });
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+});
+</script>
+<style>
+    h5 {
+        color: #428bca !important;
+        text-decoration: none !important;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+
+        /*a:hover {
+            color: #2a6496 !important;
+            text-decoration: none !important;
+        }*/
+</style>
+
+
+<section class="mainbody">
+    <div class="container-fluid">
+        <div class="col-md-3">
+            <div class="container">
+                <ul class="nav">
+                    @Html.Partial("_AdminDashboardSidebar")
+                </ul>
+            </div>
+        </div>
+        <style>
+            /*a:hover{
+                color:#E5E7E9;
+                text-decoration:none;
+            }*/
+        </style>
+        <div class="col-md-9" style="width: 81%;margin-top: 2em; margin-left: 21em;">
+            <div style="padding-top:1em;"></div>
+            <p style="font-size: 22px;">Add Job</p>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
+                @*<li><a href="#">Private</a></li>*@
+                @*<li><a href="#">Pictures</a></li>*@
+                <li class="active"><a href="@Url.Action("jobrequisitionmanager","Admin")">Job Requisition Manager</a></li>
+                <li class="active">Requisitions</li>
+                </ol>
+
+            <section class="container-fluid">
+                <span>@ViewBag.Message</span>
+                <div class="" >
+                    <a href="@Url.Action("requisition/create","Admin")" id="reqjob"  style="padding:0.6em; border-radius:10px" class="btn btn-default btn-xs"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Requisition</a>
+                    @*<span class="glyphicon glyphicon-search"></span> <input class="form-control input-sm" id="myInput" type="text" placeholder="filter requisition entries.." style="display:inline-block;outline:none" />*@
+                    <p class="pull-right"><input class="form-control input-sm" id="myInput" type="text" placeholder="filter requisition entries.." style="display:inline-block;outline:none" /></p>
+ 
+                </div>
+        <br />
+                <div class="container-fluid">
+                    
+                    <div class="panel panel-default panel-default" style="margin-bottom:0.5em">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1"> <h5 style="font-weight:bold"> New Requisitions</h5></a>
+                            </div>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                @*<table id="myTable" class="table table-striped">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Tosin</td>
+                                        <td>24</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Frank</td>
+                                        <td>34</td>
+                                    </tr>
+                                </table>*@
+                                @Html.Action("_GetIncomingRequisitions", "Requisition")
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="panel panel-default" style="margin-bottom:0.5em">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" href="#collapse2"><h5 style="font-weight:bold"> Approved Requisitions</h5></a>
+                            </div>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                @Html.Action("_GetActiveRequisitions", "Requisition")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="panel panel-default ">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" href="#collapse3"><h5 style="font-weight:bold"> Rejected Requisitions</h5></a>
+                            </div>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                @Html.Action("_GetRejectedRequisitions", "Requisition")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</section>
+<script type="text/javascript">
+    $(function () {
+        
+    });
+</script>

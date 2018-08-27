@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TalentAcquisition.BusinessLogic.UpdatedDomain.OnboardingTemplate>
+@using Humanizer
+<table class="table table-striped" style="font-size:90%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateEdited)
+        </th>
+        <th>Modification</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @item.DateCreated.Humanize()
+        </td>
+        <td>
+            @item.DateEdited.Humanize()
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Template/Customize/" + item.ID, "Onboarding", new { title = item.Title }*@
+            <a href="@Url.Action("Template/Customize/" + item.ID, "Onboarding")" class="btn btn-xs btn-success" style=""> Edit</a>
+            @*@Html.ActionLink("Details", "Template/Customize/" + item.ID, "Onboarding", new { id = item.ID })*@
+            <a href="@Url.Action( "Template/Customize/" + item.ID, "Onboarding")" class="btn btn-xs btn-primary" style=""> Details</a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Self Service";
+    Layout = "~/Views/Shared/_NormalLayout.cshtml";
+}
+@*<div style=" margin-bottom:30px"></div>*@
+<p style="font-size: 22px;">Employee Profile</p>
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
+    @*<li><a href="#">Private</a></li>*@
+    @*<li><a href="#">Pictures</a></li>*@
+    <li class="active">Employee</li>
+    <li class="active">Self Service</li>
+</ol>
+<style>
+
+   h5 
+    {
+       
+        color:#428bca !important;
+        text-decoration:none !important;
+    }
+    a 
+    {
+        text-decoration:none !important
+    }
+    a:hover
+    {
+        color:#2a6496;
+        text-decoration:none;
+    }
+</style>
+<section class="container-fluid">
+    <div class="panel panel-default" style="">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <a data-toggle="collapse" href="#collapse1"> <h5 style="font-weight:bold"> Self Service</h5></a>
+            </div>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <ul>
+                    <li>@Html.ActionLink("Update Profile Details", "Profile", "Employees")</li>
+                    @*@if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Job Requisition Management", "Job", "Settings")</li>
+                        <li>@Html.ActionLink("Onboarding", "Onboarding", "Settings")</li>
+                    }*@
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+

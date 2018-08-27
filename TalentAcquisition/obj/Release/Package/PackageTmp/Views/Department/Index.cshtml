@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TalentAcquisition.Core.Domain.Department>
+
+@{
+    ViewBag.Title = "Manage Departments";
+    Layout = "~/Views/Shared/_NormalLayout.cshtml";
+}
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
+    <li class="active">Departments</li>
+    <li class="active">All</li>
+</ol>
+<section class="container body-content">
+    <div class="row">
+        <p>
+            <a class="btn btn-default btn-sm" href="/Admin/manage_departments/Create">Create New Department</a>
+        </p>
+    </div>
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <p class="panel-title">
+                    <a data-toggle="collapse" href="#main" style="text-decoration:none">All Departments</a>
+                </p>
+            </div>
+            <div id="main" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <table class="table" style="color:black">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DepartmentName)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DepartmentName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.DepartmentID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.DepartmentID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.DepartmentID })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+

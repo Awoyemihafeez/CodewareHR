@@ -1,0 +1,168 @@
+﻿@model IEnumerable<TalentAcquisition.Core.Domain.OfficePosition>
+
+@{
+    ViewBag.Title = "Job Manager";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="mainbody" style="overflow-x:hidden">
+    <div class="container-fluid" @*style="margin-top:50px;"*@>
+        <div class="col-md-3">
+            @Html.Partial("_AdminDashboardSidebar")
+            <div ></div>
+        </div>
+
+        <div class="col-md-9" style="margin-left:21em;margin-top:3em;width:81%">
+            @*<section class="" style="margin-top:20px;">*@
+                @*<div style="margin-top:1.5em;"></div>*@
+              
+                <ol class="breadcrumb">
+                    <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
+                    @*<li><a href="#">Private</a></li>*@
+                    @*<li><a href="#">Pictures</a></li>*@
+                    <li class="active">Job Manager</li>
+                    @*<li><a href="#">Pictures</a></li>*@
+                </ol>
+                @*ALL JOBS CONTAINER*@
+                    <div class="container-fluid">
+                        <div class="">
+                            
+                            <div class="" style="  font-size: 80%">
+                                <p >
+                                    <a  style="padding:0.6em; border-radius:5px" class="btn btn-default btn-xs" href="@Url.Action("Job/Create","Admin")"><img src="~/Assets/Icons/File-Plus.png" style="height:20px;width:18px"/>Create New Job</a>
+                                </p>
+                                <table class="table table-striped" >
+                                    <tr>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.Department.DepartmentName)*@
+                                            <h5 style="font-weight:bold">Department Name</h5>
+                                        </th>
+                                        @*<th>
+                @Html.DisplayNameFor(model => model.Industry.Name)
+            </th>*@
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.JobID)*@
+                                            <h5 style="font-weight:bold">Job ID</h5>
+                                        </th>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.Title)*@
+                                            <h5 style="font-weight:bold">Job Title</h5>
+                                        </th>
+                                        @*<th>
+                @Html.DisplayNameFor(model => model.RoleSummary)
+            </th>*@
+                                        @*<th>
+                @Html.DisplayNameFor(model => model.Reqirements)
+            </th>*@
+                                        @*<th>
+                @Html.DisplayNameFor(model => model.IsAvailable)
+            </th>*@
+                                        @*<th>
+                @Html.DisplayNameFor(model => model.JobDescription)
+            </th>*@
+                                        <th>
+                                            <h5 style="font-weight:bold">Employees</h5>
+                                        </th>
+                                        @*<th>
+                @Html.DisplayNameFor(model => model.SupervisorID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MainObjective)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequisitionCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>*@
+                                        <th>
+                                            <h5 style="font-weight:bold">Modifications</h5>
+                                        </th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                                            </td>
+                                            @*<td>
+                    @Html.DisplayFor(modelItem => item.Industry.Name)
+                </td>*@
+                                            <td>
+                                                <a href="@Url.Action("Job/"+item.OfficePositionID, "Admin")">@Html.DisplayFor(modelItem => item.JobID)</a>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            @*<td>
+                    @Html.DisplayFor(modelItem => item.RoleSummary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reqirements)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAvailable)
+                </td>*@
+                                            @*<td>
+                    @Html.DisplayFor(modelItem => item.JobDescription)
+                </td>*@
+                                            <td style="padding-left:3.5em">
+                                                @Html.DisplayFor(modelItem => item.Posts)
+                                            </td>
+                                            @*<td>
+                    @Html.DisplayFor(modelItem => item.SupervisorID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MainObjective)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequisitionCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>*@
+
+                                            <td>
+                                                <a href="@Url.Action("Job/Edit/"+item.OfficePositionID, "Admin")" @*class="btn btn-sm btn-success" style="padding:0.1em 0.5em"*@>Edit</a>
+                                                <a href="@Url.Action("Job/"+item.OfficePositionID, "Admin")" @*class="btn btn-sm btn-primary" style="padding:0.1em 0.5em"*@> Details</a>
+                                                <a href="@Url.Action("Job/Delete/"+item.OfficePositionID, "Admin")" @*class="btn btn-sm btn-danger" style="padding:0.1em 0.5em"*@> Delete</a>
+
+                                            </td>
+
+
+                                        </tr>
+                                    }
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                
+            </section>
+        </div>
+    </div>
+</section>
+
+
+
+

@@ -1,0 +1,525 @@
+﻿@model TalentAcquisition.Core.Domain.JobRequisition
+<style>
+    /*select,input{
+        min-width:100%;
+        width:100%;
+    }
+    select{
+        margin-left:0px;
+    }*/
+</style>
+<div id="UpdatedSection">
+    <span class="alert-danger">@ViewBag.Message</span>
+    <div class="row" style="font-size:80%">
+        <form method="post" action="@(Url.Action("Requisition/Create","Admin"))" id="createrequisitionform">
+        @*@using (Html.BeginForm("Requisition/Create", "Admin", FormMethod.Post))
+        {*@
+    <style>
+        select {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            min-width: 100%;
+            font-size: 80%;
+        }
+
+        .form-group {
+            padding-bottom: -1.0em;
+            margin-bottom: 0.2em;
+        }
+
+        textarea {
+            margin-top: -2em;
+            padding-top: -2em;
+        }
+
+        /*input {
+                    margin: 0;
+                    padding: 0;
+                }*/
+
+        label {
+            font-size: 90%;
+        }
+    </style>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Requisition Summary
+        </div>
+        <div class="panel-body" style="margin-bottom:-1.5em">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-md-12 col-lg-12" style="font-size:95%;" id="ruff">
+                        <style>
+                            #ruff select, #ruff input {
+                                padding: 0px;
+                                margin: 0px;
+                                width: 160px;
+                            }
+
+                            #ruff label {
+                                margin-right: -4em;
+                            }
+                        </style>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RequisitionNo, htmlAttributes: new { @class = "col-md-6" })
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.RequisitionNo, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                                    @Html.ValidationMessageFor(model => model.RequisitionNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.Label("Department", htmlAttributes: new { @class = "col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.DropDownList("departmentid", new SelectList(ViewBag.Departments, "DepartmentID", "DepartmentName"), "Select Department", htmlAttributes: new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.OfficePositionID, htmlAttributes: new { @class = "col-md-4" })
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(model => model.OfficePositionID, new SelectList(ViewBag.Positions, "OfficePositionID", "Title"), "Select Position", htmlAttributes: new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6" style="font-size:95%;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "col-md-3" })
+                                <div class="col-md-8">
+                                    @*@Html.EditorFor(item=>item.StartDate)*@
+                                    <input type="text" name="StartDate" data-date-format="DD/MM/YYYY" id="StartDate" class="form-control input-sm" value="@DateTime.UtcNow.ToShortDateString()" placeholder="Pick Starting Date for Recruitment" />
+                                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ClosingDate, htmlAttributes: new { @class = "col-md-3" })
+                                <div class="col-md-8">
+                                    @*@Html.EditorFor(item => item.ClosingDate)*@
+                                    <input type="text" name="ClosingDate" data-date-format="DD/MM/YYYY" id="ClosingDate" class="form-control input-sm" value="@DateTime.UtcNow.ToShortDateString()" placeholder="Pick Closing Date for Recruitment" />
+                                    @Html.ValidationMessageFor(model => model.ClosingDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.JobTitle, htmlAttributes: new { @class = "col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.JobTitle, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Job Title" } })
+                                    @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Specify Location" } })
+                                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.NoOfPositionsAvailable, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-left:-6.4em;width:275px">
+                                    @Html.EditorFor(model => model.NoOfPositionsAvailable, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Specify Number Of Slots Available" } })
+                                    @Html.ValidationMessageFor(model => model.NoOfPositionsAvailable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.JobDescription, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-top:2em;margin-left:-6.4em;width:275px">
+                                    @Html.TextAreaFor(model => model.JobDescription, new { @class = "form-control", rows = "2", cols = "5" })
+                                    @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.YearsOfExperience, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-left:-6.4em;width:275px">
+                                    @Html.EditorFor(model => model.YearsOfExperience, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "No of Years of Experience" } })
+                                    @Html.ValidationMessageFor(model => model.YearsOfExperience, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 hidden">
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    @Html.EnumDropDownListFor(model => model.MinimumQualification, "Select Minimum Qualification For Position", htmlAttributes: new { @class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(model => model.MinimumQualification, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.Label("Skills", htmlAttributes: new { @class = "col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.Action("_GetSkills")
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-12 hidden">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(model => model.EducationalRequirements, new { @class = "form-control", @placeholder = "Enter Educational Requirements", rows = "8", cols = "10" })
+                                    @Html.ValidationMessageFor(model => model.EducationalRequirements, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(model => model.JobResponsibilities, new { @class = "form-control", @placeholder = "Enter The Responsibilities for the Role", rows = "8", cols = "10" })
+                                    @Html.ValidationMessageFor(model => model.JobResponsibilities, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6" style="font-size:90%">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ReasonForRequest, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-top:2.5em;margin-left:-5em;width:270px">
+                                    @Html.TextAreaFor(model => model.ReasonForRequest, new { @class = "form-control", rows = "2", cols = "5" })
+                                    @Html.ValidationMessageFor(model => model.ReasonForRequest, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.GlobalDimension, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-left:-5em;width:270px">
+                                    @Html.EditorFor(model => model.GlobalDimension, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                                    @Html.ValidationMessageFor(model => model.GlobalDimension, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TurnAroundTime, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-left:-5em;width:270px">
+                                    @Html.EditorFor(model => model.TurnAroundTime, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                                    @Html.ValidationMessageFor(model => model.TurnAroundTime, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TypeOfContractRequired, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-left:-5em;width:270px">
+                                    @Html.EditorFor(model => model.TypeOfContractRequired, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                                    @Html.ValidationMessageFor(model => model.RequisitionNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VacantPositions, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-left:-5em;width:270px">
+                                    @Html.EditorFor(model => model.VacantPositions, new { htmlAttributes = new { @class = "form-control input-sm disabled" } })
+                                    @Html.ValidationMessageFor(model => model.VacantPositions, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.GracePeriod, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-left:-5em;width:270px">
+                                    @Html.EditorFor(model => model.GracePeriod, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                                    @Html.ValidationMessageFor(model => model.GracePeriod, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Priority, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-left:-5em;width:270px">
+                                    @Html.EnumDropDownListFor(model => model.Priority, htmlAttributes: new { @class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-md-4">Qualification</label>
+                                <div class="col-md-8">
+                                    <div class="col-md-6">
+                                    @Html.EnumDropDownListFor(model => model.HighestQualification, "Highest Qualification For Position", htmlAttributes: new { @class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(model => model.HighestQualification, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-6">
+                                    @Html.EnumDropDownListFor(model => model.MinimumQualification, "Minimum Qualification For Position", htmlAttributes: new { @class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(model => model.MinimumQualification, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AgeLimit, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-left:-5em;width:270px">
+                                    @Html.EditorFor(model => model.AgeLimit, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Set The Upper Age Limit" } })
+                                    @Html.ValidationMessageFor(model => model.AgeLimit, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AnyAdditionalInformation, htmlAttributes: new { @class = "col-md-5" })
+                                <div class="col-md-6" style="margin-top:3em;margin-left:-5em;width:270px">
+                                    @Html.TextAreaFor(model => model.AnyAdditionalInformation, new { @class = "form-control", rows = "2", cols = "5" })
+                                    @Html.ValidationMessageFor(model => model.AnyAdditionalInformation, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="panel panel-primary" style="margin-top:-1.7em;">
+                <div class="panel-heading">
+                    Requirements
+                </div>
+                <div class="panel-body">
+                    <a id="additem" href="javascript:void()" class="pull-right btn btn-default btn-xs" style="margin-top:-0.8em"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Add</a>
+                    @*@Html.Action("_GetRequirementsForEditing", new { requirements = (List<TalentAcquisition.BusinessLogic.UpdatedDomain.JobRequirement>)ViewBag.SelectedRequirements })*@
+                </div>
+            </div>
+@*}*@
+        </form>   
+    </div>
+    </div>
+<script type="text/javascript">
+    $(function () {
+        $("#RequisitionNo").attr("disabled", true);
+        $("#OfficePositionID").attr("disabled", true);
+        var frm = $("#createrequisitionforms");
+        $("#submitreq").on("click", function () {
+            $("#createrequisitionform").submit();
+        });
+        frm.submit(function (e) {
+
+                e.preventDefault();
+
+                $.ajax({
+                    type: frm.attr('method'),
+                    url: frm.attr('action'),
+                data: frm.serializeArray()
+            });
+
+        });
+        $("#departmentid").change(function ()
+        {
+            if ($("#departmentid").val() != "")
+            {
+                //alert("Value Selected");
+                var deptid = $("#departmentid").val();
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("RolesInDepartment","Requisition")",
+                    data: {departmentid:deptid},
+                    success: function (data) {
+                        // alert("positions obtained");
+                        $("#OfficePositionID").html();
+                        var options = '<option value=""></option>';
+                        $(data).each(function () {
+                            options += '<option value="' + this.Value + '">' + this.Text + "</option>";
+                        //    $("#OfficePositionID").append($("<option></option>").val(this.Value).html(this.Text));
+                        });
+                        //alert("position obtained" + options);
+                        $("#OfficePositionID").html(options);
+                        $("#OfficePositionID").attr("disabled", false);
+                        //$.each(data, function (i, val) {
+                        //    $("#OfficePositionID").append($("<option></option>",
+                        //       ($({ value: val.OfficePositionID, text: val.Title }))));
+                        //});
+                    },
+                    error:function(error){
+                        alert("Currently Unable To Retrieve Associated Departments. Retry Action");
+                        //
+                    }
+                });
+            }
+            else {
+                alert("Select Valid Value for Department");
+            }
+        });
+
+        $("#OfficePositionID").select(function () {
+            var roleid = $("#OfficePositionID").val();
+            alert("ok"+roleid);
+        });
+
+        $("#OfficePositionID").change(function ()
+        {
+            if ($("#OfficePositionID").val() != "")
+            {
+                var roleid = $("#OfficePositionID").val();
+                //alert(roleid);
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'Json',
+                    url: "@Url.Action("GetInformationForRole","Requisition")",
+                    data: {officeroleid:roleid},
+                success: function (role) {
+                   alert(role.Title);
+                        //$("#OfficePositionID").append($("<option></option>").val(this.Value).html(this.Text));
+                        //$("#JobTitle").val("Title");
+                    //$("#JobResponsibilities").val("Responsible");
+                   // var jsonobject = JSON.parse(role);
+                   // alert(jsonobject);
+                        $("#JobTitle").val(role.Title);
+                        $("#JobResponsibilities").html(role.Responsibilities);
+                        $("#VacantPositions").attr("disabled", true);
+                        $("#VacantPositions").val(role.AvailablePosts);
+                        //alert("Got It");
+                },
+                error:function(error){
+                    alert("failed");
+                    //
+                }
+            });
+        }
+        else {
+                alert("Select Valid Value for Office Role");
+    }
+    });
+    });
+</script>
+
+@*<div class="row">
+    @using (Html.BeginForm("Requisition/Create", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.DropDownList("departmentid", new SelectList(ViewBag.Departments, "DepartmentID", "DepartmentName"), "Select Department", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model=>model.OfficePositionID, new SelectList(ViewBag.Positions, "OfficePositionID", "Title"), "Select Position", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+            @*<div class="form-group">
+                <div class="col-md-12">
+                    <select id="OfficePosition" Name="OfficePosition" class="form-control" autofocus>
+                        <option value="">Select Position</option>
+                        <option value="1">A</option>
+                        <option value="2">A</option>
+                    </select>
+                </div>
+            </div>*@
+@*<div class="form-group">
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.JobTitle, new { htmlAttributes = new { @class = "form-control",@placeholder="Enter Job Title" } })
+                                @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control",@placeholder="Specify Location" } })
+                                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.NoOfPositionsAvailable, new { htmlAttributes = new { @class = "form-control",@placeholder="Specify Number Of Slots Available" } })
+                            @Html.ValidationMessageFor(model => model.NoOfPositionsAvailable, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.TextAreaFor(model => model.JobDescription, new { @class = "form-control",@placeholder="Enter Job Description", rows = "8", cols = "10" })
+                            @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.AgeLimit, new { htmlAttributes = new { @class = "form-control", @placeholder = "Set The Upper Age Limit" } })
+                            @Html.ValidationMessageFor(model => model.AgeLimit, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.YearsOfExperience, new { htmlAttributes = new { @class = "form-control", @placeholder = "No of Years of Experience" } })
+                            @Html.ValidationMessageFor(model => model.YearsOfExperience, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.EnumDropDownListFor(model => model.HighestQualification, "Select Highest Qualification For Position", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.HighestQualification, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.EnumDropDownListFor(model => model.MinimumQualification, "Select Minimum Qualification For Position", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MinimumQualification, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <br/>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @Html.TextAreaFor(model => model.EducationalRequirements, new { @class = "form-control",@placeholder="Enter Educational Requirements", rows = "8", cols = "10" })
+                                @Html.ValidationMessageFor(model => model.EducationalRequirements, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @Html.TextAreaFor(model => model.JobResponsibilities, new { @class = "form-control",@placeholder="Enter The Responsibilities for the Role", rows = "8", cols = "10" })
+                                @Html.ValidationMessageFor(model => model.JobResponsibilities, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                           <div class="col-md-12">
+                                <input type="text" name="StartDate" data-date-format="DD-MM-YYYY" id="StartDate" class="form-control" value="" placeholder="Pick Starting Date for Recruitment"/>
+                                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Skills</label>
+                        <div class="col-md-12">
+                            @Html.Action("_GetSkills")
+                        </div>
+                    </div>
+                        <div class="form-group">
+                           <div class="col-md-12">
+                                <input type="text" name="ClosingDate" data-date-format="DD-MM-YYYY" id="ClosingDate" class="form-control" value="" placeholder="Pick Closing Date for Recruitment"/>
+                                     @Html.ValidationMessageFor(model => model.ClosingDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                    </div>
+            }
+        </div>
+    </div>*@
