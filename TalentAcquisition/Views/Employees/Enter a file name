@@ -1,0 +1,181 @@
+﻿ <section class="container-fluid">
+                <div class="">
+                    @*<div class="panel-heading">
+                        Details
+                    </div>*@
+                    <div class="col-md-12">
+                        <div class="card-box" style="background-color: whitesmoke;  padding: 2em; border-radius: 20px;">
+                                <style>
+                                   .img-wrapper
+                                   {
+                                    position:absolute;
+                                   }
+                                   .img{
+                                    cursor:pointer;
+                                    position:relative;
+                                   }
+                                   .Basic
+                                   {
+
+                                   }
+                                </style>
+                           <div class="img-wrapper">
+                                        <div class="img"  style="">
+
+                                            @if (String.IsNullOrEmpty(Model.PassportDetails))
+                                            {
+                                                <img src="~/Assets/Icons/Man-Suit-2.png" alt="Avatar" width="150" height="150" style="border-radius:50%">
+                                            }
+                                            else
+                                            {
+                                                string url = Path.Combine(Server.MapPath("~/Uploads/"), Model.UserId + "_img.png");
+                                                string azureurl = Path.Combine("https://codelabstorage.blob.core.windows.net/webappstoragedotnet-imagecontainer/", Model.PassportDetails);
+                                                <img src="@azureurl" alt="Avatar" width="150" height="150" style="border-radius:50%">
+                                            }
+                                    </div>
+                           </div>
+                           <div class="Basic">
+                            <div class="row">
+                                <br />
+                                <!--Comment-->
+                                <span class="alert-danger"></span>
+                                <span class="alert-danger">@ViewBag.Message</span>
+
+                                <div class="x">
+                                    <div class="profile-left">
+                                        <h3 class="firstname">@Html.DisplayFor(model => model.FirstName)</h3>
+                                        <h5 class="lastname">@Html.DisplayFor(model => model.LastName)</h5>
+                                        <small class="text-muted">@Html.DisplayFor(model => model.OfficePosition.Title)</small>
+                                        <div class="title">@Html.DisplayFor(model => model.EmployeeNumber)</div>
+                                    </div>
+                                </div>
+
+                                <div class="y">
+                                    <style>
+                                        .info li {
+                                            margin-bottom:10px
+                                        }
+                                        span title{
+                                          float:left;
+                                          width:30%;
+                                          margin-right:30px;
+                                        }
+                                        span text{
+                                            display:block;
+                                        }
+                                    </style>
+                                    <div class="profile-right">
+                                        <ul class="info">
+                                            <li>
+                                                <span class="title">@Html.DisplayNameFor(model => model.PhoneNumber):</span>
+                                                <span class="text">@Html.DisplayFor(model => model.PhoneNumber)</span>
+                                            </li>
+                                            <li>
+                                                <span class="title">@Html.DisplayNameFor(model => model.Address):</span>
+                                                <span class="text">@Html.DisplayFor(model => model.Address)</span>
+                                            </li>
+                                            <li>
+                                                <span class="title">@Html.DisplayNameFor(model => model.DateOfBirth):</span>
+                                                <span class="text">@Html.DisplayFor(model => model.DateOfBirth)</span>
+                                            </li>
+                                            <li>
+                                                <span class="title">@Html.DisplayNameFor(model => model.EmploymentDate):</span>
+                                                <span class="text">@Html.DisplayFor(model => model.EmploymentDate)</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                        @*@Html.DisplayNameFor(model => model.OfficePosition.Title)*@
+                                   
+                                     
+                                   
+                                        @*@Html.DisplayNameFor(model => model.EmployeeNumbe*@
+                                    
+                                      
+                                    
+                                        
+                                    
+                                        @*@Html.DisplayNameFor(model => model.FirstName)*@
+                                    
+                                     
+                                   
+                                        @*@Html.DisplayNameFor(model => model.LastName)*@
+                                 
+                                        
+                                   
+                                       
+                                     <style>
+        *{
+            box-sizing: border-box;
+        }
+        .experience-box {
+            position: relative;
+        }
+        .card-box {
+            background-color:whitesmoke;
+            border: 1px solid lightgrey;
+            border-radius: 4px;
+            box-shadow: 1px 2px 1px 1px lightgrey;
+            /*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);*/
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+        .experience-list > li .experience-content {
+    background-color: transparent;
+    margin: 0 0 20px 40px;
+    padding: 0;
+    position: relative;
+}
+
+        .experience-list > li {
+            position: relative;
+        }
+        .experience-list > li .experience-user {
+    background: transparent;
+    height: 10px;
+    left: 4px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 4px;
+    width: 10px;
+}
+        .experience-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .skills > span {
+            border: 1px solid #2e3439;
+            border-radius: 500px;
+            display: block;
+            margin-bottom: 10px;
+            padding: 6px 12px;
+            text-align: center;
+        }
+    </style>
+                                       
+                                   
+                                        
+                                
+                            </div>
+                            <div class="form-group hidden">
+                                <div class="z">
+
+                                    @if(User.IsInRole("Admin"))
+                                    { 
+                                        @Html.ActionLink("Edit", "Edit", new { id = Model.ID },
+                                       htmlAttributes: new { @class = "btn btn-default btn-sm col-md-4" })
+                                        @*@Html.ActionLink("Delete", "Delete", new { id = Model.ID },
+                                       htmlAttributes: new { @class = "btn btn-default btn-sm col-md-4 pull-right" })*@
+                                    }
+                                    </div>
+                                <br />
+                            </div>
+                           </div>
+                    </div>
+                    </div>
+                </div>
+            </section>

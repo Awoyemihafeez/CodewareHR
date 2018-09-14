@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<div style="padding-top:2em;"></div>
-<p style="font-size: 22px;">Employee Management</p>
+
+
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     <li class="active">Employee Directory</li>
@@ -20,51 +20,60 @@
         @*<p>
                 @Html.ActionLink("Create New", "Create")
             </p>*@
-       <div class="row">
+        <div class="container-fluid">
             <style>
-                .card {
-                    /* Add shadows to create the "card" effect */
-                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-                    transition: 0.3s;
+                .img {
+                    display: inline-block;
+                    position: relative;
                 }
 
-                    /* On mouse-over, add a deeper shadow */
-                    .card:hover {
-                        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-                    }
-
-                    .card .container {
-                        padding: 2px 16px;
-                        margin-bottom: 1em;
-                    }
+                .z {
+                    color: #bbc4cc;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                h4{
+                    margin-bottom: 0.1em !important;
+                }
+                h4:hover{
+                    color:black;
+                }
             </style>
 
             @foreach (var employee in Model)
             {
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-md-4 col-sm-4 col-xs-6 col-lg-4" style="background-color: whitesmoke;border: 1px solid lightgoldenrodyellow;border-radius: 10px; width: 24%;">
+                    
+                    <div class="">
+                        <a class="avatar" href="@Url.Action("Details", new { id = employee.ID })">
+                            @if (String.IsNullOrEmpty(employee.PassportDetails))
+                            {
+                                <img src="~/Assets/Icons/Man-Suit-2.png" alt="Avatar" width="50" height="50" style="border-radius:50%;box-shadow: 1px 2px 2px 1px lightgrey;">
+                            }
+                            else
+                            {
+                                string url = Path.Combine(Server.MapPath("~/Uploads/"), employee.UserId + "_img.png");
+                                string azureurl = Path.Combine("https://codelabstorage.blob.core.windows.net/webappstoragedotnet-imagecontainer/", employee.PassportDetails);
+                                <img src="@azureurl" alt="Avatar" width="50" height="50" style="border-radius:50%;box-shadow: 1px 2px 2px 1px lightgrey;">
+                            }
 
-                        @if (String.IsNullOrEmpty(employee.PassportDetails))
-                        {
-                            <img src="~/Assets/Icons/Man-Suit-2.png" alt="Avatar" width="100" height="100" style="border-radius:50%">
-                        }
-                        else
-                        {
-                            string url = Path.Combine(Server.MapPath("~/Uploads/"), employee.UserId + "_img.png");
-                            string azureurl = Path.Combine("https://codelabstorage.blob.core.windows.net/webappstoragedotnet-imagecontainer/", employee.PassportDetails);
-                            <img src="@azureurl" alt="Avatar" width="100" height="100" style="border-radius:50%">
-                        }
-                        <div class="container">
+                        </a>
+
+                       
+                        <div class="z">
                             <h4><b>@employee.FullName</b></h4>
-                            <p>@employee.OfficePosition.Title</p>
-                            <p>@employee.PhoneNumber</p>
-                            @*<h6>
-                                @Html.ActionLink("Details", "Details", new { id = employee.ID },
-                                   htmlAttributes: new { @class = "btn btn-default btn-xs" })
-                        </h6>*@
+                            <p class="text-muted">@employee.OfficePosition.Title</p>
+                            @*<p class="text-muted">@employee.PhoneNumber</p>*@
+                            @*<a class="avatar" href="@url.Action( "Details", new { id = employee.ID })">
+                                        @*  <i class="fa fa-ellipsis-v"></i>
+                                    @Html.ActionLink("Details", "Details", new { id = employee.ID },
+                                       htmlAttributes: new { @class = "btn btn-default btn-xs" })
+                                </a>*@
+
+
+                        </div>
                     </div>
                 </div>
-            </div>
             }
         </div>
     </div>

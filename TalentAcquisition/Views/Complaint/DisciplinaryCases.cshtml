@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Disciplinary Cases</p>
+@*<p style="font-size: 22px;">Disciplinary Cases</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -13,14 +13,14 @@
     <li class="active">Disciplinary Case</li>
     <li class="active">All</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+<section class="container-fluid">
+    <div class="container-fluid">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">Disciplinary Cases</p>
-            </div>
-            <div class="panel-body" style="padding:0">
-                <table class="table">
+            </div>*@
+            <div class="">
+                <table class="table table-striped" style="border:1px solid lightgrey">
                     <tr style="font-size:80%">
                         <th>
                             @Html.DisplayNameFor(model => model.CaseNumber)
@@ -55,7 +55,9 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Posted)
                         </th>
-                        <th></th>
+                        @*<th>
+                            Modification
+                        </th>*@
                     </tr>
 
                     @foreach (var item in Model)

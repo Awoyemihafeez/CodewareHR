@@ -3,15 +3,15 @@
 @*<p>
     @Html.ActionLink("Create New", "Create")
 </p>*@
-<table class="table table-striped" style="font-size:80%">
-    <tr style="font-size:80%">
+<table class="table table-striped" style="font-size:80%;border:1px solid lightgrey">
+    <tr style="">
         <th>
             @*@Html.DisplayNameFor(model => model.EmployeeId)*@
            <h6><strong>Employee ID</strong></h6> 
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.EmployeeName)*@
-           <h6><strong>Fullname</strong></h6>
+           <h6><strong>Full Name</strong></h6>
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.StartDate)*@
@@ -33,7 +33,7 @@
             @*@Html.DisplayNameFor(model => model.Status)*@
             <h6><strong>Status</strong></h6>
         </th>
-        <th></th>
+        <th><h6><strong>Modification</strong></h6></th>
     </tr>
 
 @foreach (var item in Model) {

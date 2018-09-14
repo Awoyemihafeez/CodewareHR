@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Performance KPI Templates</p>
+@*<p style="font-size: 22px;">Performance KPI Templates</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -13,18 +13,24 @@
     <li class="active">Performance</li>
     <li class="active">KPI Templates</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+<section class="container-fluid">
+    <div class="container-fluid">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">KPI Templates</p>
-            </div>
-            <div class="panel-body">
+            </div>*@
+            <div class="">
+                <style>
+                    a:hover{
+                        background-color:whitesmoke
+                    }
+                </style>
 
                 <p>
-                    @Html.ActionLink("Create New", "Appraisal/Template/Create","Performance")
+                    <a class="" href="@Url.Action("Appraisal/Template/Create","Performance")" style="text-decoration:none;border:1px solid lightgrey;border-radius:10px;padding:0.8em">Create</a>
+                    @*@Html.ActionLink("Create New", "Appraisal/Template/Create","Performance")*@
                 </p>
-                <table class="table">
+                <table class="table table-striped" style="border:1px solid lightgrey;font-size:90%;margin-top:2em">
                     <tr>
                         <th>
                             @Html.DisplayNameFor(model => model.Description)
@@ -32,7 +38,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.AppraisalClass)
                         </th>
-                        <th></th>
+                        <th>Modification</th>
                     </tr>
 
                     @foreach (var item in Model)

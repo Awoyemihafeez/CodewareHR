@@ -10,7 +10,7 @@
 </script>
 <script src="~/ckeditor/adapters/jquery.js"></script>
 @*<div style="padding-top:2em;"></div>*@
-<p style="font-size: 22px;">Employee Creation</p>
+@*<p style="font-size: 22px;">Employee Creation</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -32,17 +32,22 @@
             text-decoration: none !important;
         }
 </style>
-<section class="container body-content">
+<section class="container-fluid">
     @*<span>@ViewBag.Message</span>*@
     <div class="row">
         @*<a href="@Url.Action("requisition/create","Admin")" id="reqjob" class="btn"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Requisition</a>
             <span class="glyphicon glyphicon-search"></span> <input class="form-control input-sm" id="myInput" type="text" placeholder="filter requisition entries.." style="display:inline-block;outline:none" />*@
     </div>
-    <div class="row">
-        <div class="panel panel-default" style=" margin-bottom: 0.5em;">
-            <div class="panel-heading">
-                <div class="panel-title">
-                    <a data-toggle="collapse" href="#collapse5"> <h5 style="font-weight:bold"> Personal Leave Plan Management</h5></a>
+    <style>
+        h5{
+            padding-bottom:0.8em;
+        }
+    </style>
+    <div class="container-fluid">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse5"> <h5 style="font-weight:bold;border-bottom:1px solid lightgrey"> Personal Leave Plan Management</h5></a>
                 </div>
             </div>
             <div id="collapse5" class="panel-collapse collapse">
@@ -58,19 +63,19 @@
     </div>
     @if (User.IsInRole("Admin"))
     {
-        <div class="row">
-            <div class="panel panel-default panel-default" style=" margin-bottom: 0.5em;">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <a data-toggle="collapse" href="#collapse1"><h5 style="font-weight:bold"> Compose Leave Plan Message</h5></a>
+        <div class="container-fluid">
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <a data-toggle="collapse" href="#collapse1"><h5 style="font-weight:bold;border-bottom:1px solid lightgrey"> Compose Leave Plan Message</h5></a>
                     </div>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse">
-                    <div class="panel-body">
+                    <div class="">
                         <form method="post">
                             <div class="form-group">
                                 <textarea id="editor1" name="MessageBody" class="ckeditor" value="@Model.MessageBody"></textarea>
-                                <div style="margin-left:15px; margin-bottom:5px">
+                                <div style="margin-top: 7px">
                                     <input type="submit" class="btn btn-success" value="Send Message" />
                                 </div>
                             </div>
@@ -79,11 +84,11 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="panel panel-default" style=" margin-bottom: 0.5em;" >
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <a data-toggle="collapse" href="#collapse2"> <h5 style="font-weight:bold"> Pending Leave Plan</h5></a>
+        <div class="container-fluid">
+            <div class="" >
+                <div class="">
+                    <div class="">
+                        <a data-toggle="collapse" href="#collapse2"> <h5 style="font-weight:bold;border-bottom:1px solid lightgrey"> Pending Leave Plan</h5></a>
                     </div>
                 </div>
                 <div id="collapse2" class="panel-collapse collapse">
@@ -94,11 +99,11 @@
 
             </div>
         </div>
-        <div class="row">
-            <div class="panel panel-default" style=" margin-bottom: 0.5em;">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <a data-toggle="collapse" href="#collapse3"> <h5 style="font-weight:bold"> Approved Leave Plan</h5></a>
+        <div class="container-fluid">
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <a data-toggle="collapse" href="#collapse3"> <h5 style="font-weight:bold;border-bottom:1px solid lightgrey"> Approved Leave Plan</h5></a>
                     </div>
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
@@ -109,11 +114,11 @@
 
             </div>
         </div>
-        <div class="row">
-            <div class="panel panel-default" >
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <a data-toggle="collapse" href="#collapse4"> <h5 style="font-weight:bold"> Rejected Leave Plan</h5></a>
+        <div class="container-fluid">
+            <div class="" >
+                <div class="">
+                    <div class="">
+                        <a data-toggle="collapse" href="#collapse4"> <h5 style="font-weight:bold;border-bottom:1px solid lightgrey"> Rejected Leave Plan</h5></a>
                     </div>
                 </div>
                 <div id="collapse4" class="panel-collapse collapse">

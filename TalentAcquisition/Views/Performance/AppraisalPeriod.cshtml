@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Appraisal Period</p>
+
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -12,39 +12,27 @@
     <li class="active">Performance</li>
     <li class="active">Appraisal Period</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+<section class="container-fluid">
+    <div class="container-fluid">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">Appraisal Period</p>
-            </div>
-            <div class="panel-body">
+            </div>*@
+            <div class="y">
                 <div ng-controller="AppraisalPeriodController" ng-init="init()" class="row container">
                     <button type="button" id="Mexico" style="float:right;margin-bottom: 10px;" class="btn btn-info btn-sm" ng-click="addGrievanceType()">Add Appraisal Grade</button>
-                    <style>
-                        #myTable input, #myTable select {
-                            border: none;
-                            outline: none;
-                            box-shadow: none;
-                            background-color: inherit;
-                            padding: 0;
-                            margin: 0;
-                        }
-                        td{
-                            padding:0;
-                        }
-                    </style>
+           
                     <form id="empform" ng-submit="submitGrievanceTypes()">
-                        <table id="mytable" class="table table-striped">
+                        <table id="mytable" class="table table-striped" style="border:1px solid lightgrey;    font-size: 90%;">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Code</th>
-                                    <th style="width:40%">Description</th>
+                                    <th>Description</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Closed</th>
-                                    <th></th>
+                                    <th>Modification</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,9 +52,9 @@
                                     <td><input type="checkbox" class="input-sm" name="Closed{{$index}}" ng-model="type.Closed"
                                                ng-disabled="!enabledEdit[{{$index}}]"/></td>
                                     <td>
-                                        <div class="buttons">
-                                            <button class="btn btn-primary btn-xs" ng-click="edit($index)">Edit</button>
-                                            @*<button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>*@
+                                        <div class="">
+                                            <a class="" style="cursor:pointer" ng-click="edit($index)">Edit</a>
+                                            <a class="" style="cursor:pointer" ng-click="delete($index)">Delete</a>
                                         </div>
                                     </td>
                                 </tr>

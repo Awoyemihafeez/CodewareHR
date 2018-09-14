@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Appraisal NonJobKPI Template</p>
+@*<p style="font-size: 22px;">Appraisal NonJobKPI Template</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -13,16 +13,39 @@
     <li class="active">KPI</li>
     <li class="active">Appraisal Template</li>
 </ol>
-<section class="container body-content">
+<style>
+    h5 {
+        color: #428bca !important;
+        text-decoration: none !important;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+
+        a:hover {
+            color: #2a6496;
+            text-decoration: none;
+        }
+
+    h5 {
+        border-bottom: 1px solid lightgrey;
+        padding-bottom: 0.8em;
+    }
+</style>
+
+<section class="container-fluid">
 @using (Html.BeginForm())
 {
-    <div class="row" ng-controller="KPITemplateController">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <p class="">Appraisal NonJobKPI Template</p>
+    <div class="container-fluid" ng-controller="KPITemplateController">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse1"> <h5 style="font-weight:bold">     Appraisal NonJobKPI Template</h5></a>
+                </div>
             </div>
-            <div class="panel-body">
-              
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
                 @Html.AntiForgeryToken()
                 <style>
                     label {
@@ -32,8 +55,8 @@
 
 
                 <div class="form-horizontal">
-                    <div class="col-md-12">
-                        <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6">
+                        <div class="">
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "col-md-4" })
                                 <div class="col-md-8">
@@ -52,65 +75,45 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-md-4" })
-                                <div class="col-md-8">
-                                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control input-sm" } })
-                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                                </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                             </div>
-
                         </div>
-                        
+
                     </div>
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    
 
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Save Template" class="btn btn-default" />
-                        </div>
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save Template" class="btn btn-info" />
                     </div>
                 </div>
+                </div>
+            </div>
                
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:-1.2em">
-            <div class="panel-heading" style="padding:0">
-                <p style="padding-left:1em">KPI Line Items</p>
-            </div>
-            <div class="panel-body">
-                <div  class="row container">
-                    <button type="button" id="Mexico" style="float:right;margin-bottom: 10px;" class="btn btn-info btn-sm" ng-click="addGrievanceType()">Add Appraisal Grade</button>
-                    <style>
-                        #myTable input, #myTable select {
-                            border: none;
-                            outline: none;
-                            box-shadow: none;
-                            background-color: inherit;
-                            padding: 0;
-                            margin: 0;
-                        }
 
-                        td {
-                            padding: 0;
-                        }
-                    </style>
+        <div class="">
+            <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse2"> <h5 style="font-weight:bold">KPI Line Items</h5></a>
+                </div>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse in">
+                <div class=" container-fluid">
+                    
+                    <button type="button" id="Mexico" style="float:right;margin-bottom: 10px;" class="btn btn-info btn-sm" ng-click="addGrievanceType()">Add Appraisal Grade</button>
+               
                     <div id="empform">
-                        <style>
-                          #empform  input[type=text]{
-                                outline:none;
-                                border:none;
-                                box-shadow:none;
-                                margin:0px;
-                                width:100%;
-                            }
-                          #empform  td{
-                                padding:0px;
-                            }
-                        </style>
-                        <table id="mytable" class="table table-striped table-bordered ">
+                       
+                        <table id="mytable" class="table table-striped " style="border:1px solid lightgrey">
                             <thead>
                                 <tr style="font-size:80%">
                                     @*<th>No</th>*@
@@ -118,15 +121,15 @@
                                     <th>Appraisal Class</th>
                                     <th>KPI Group</th>
                                     <th>KPI Code</th>
-                                    <th style="width:50%">KPI Description</th>
+                                    <th>KPI Description</th>
                                     <th>Maximum Score</th>
-                                    <th></th>
+                                    <th>Modification</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="type in grievanceTypes">
+                                <tr ng-repeat="type in grievanceTypes" style="font-size:80%">
                                     @*<td>{{$index+1}}</td>*@
-                                   
+
                                     <td>
                                         <input type="text" class="form-control input-sm" name="items[{{$index}}].AppraisalNonJobKPICode" ng-bind="HeaderCode" ng-model="type.AppraisalNonJobKPICode"
                                                ng-disabled="!enabledEdit[{{$index}}]" />
@@ -151,9 +154,9 @@
                                                ng-disabled="!enabledEdit[{{$index}}]" />
                                     </td>
                                     <td>
-                                        <div class="buttons">
-                                            <button class="btn btn-primary btn-xs" ng-click="edit($index)">Edit</button>
-                                            @*<button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>*@
+                                        <div class="">
+                                            <a class="" style="cursor:pointer" ng-click="edit($index)">Edit |</a>
+                                            <a class=""  style="cursor:pointer" ng-click="delete($index)">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -161,12 +164,11 @@
                             </tbody>
 
                         </table>
-                       </div>
+                    </div>
                 </div>
             </div>
         </div>
-               
-    </div>
+ 
 }
 </section>
 

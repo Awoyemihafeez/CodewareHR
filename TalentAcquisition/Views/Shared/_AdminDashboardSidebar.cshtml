@@ -46,13 +46,13 @@
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="@Url.Action("Dashboard", "Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/List.png" style="height:20px;width:22px"</span> Dashboard</a>
+                    <a href="@Url.Action("Dashboard", "Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/archives.png" style="height:20px;width:22px"</span> Dashboard</a>
                 </li>
                 <li>
-                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/Office-Building.png" style="height:20px;width:22px"</span> Organisational Administration <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
+                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/alliance.png" style="height:20px;width:22px"</span> Organisational Administration <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#"><span><img src="~/Assets/Icons/Organogram.png" style="height:18px;width:18px"</span> Departments<span class="fa arrow"></span></a>
+                            <a href="#"><span><img src="~/Assets/Icons/Skyscraper.png" style="height:18px;width:18px"</span> Departments<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
                                     <a href="@Url.Action("manage_departments/create", "Admin")"><span><img src="~/Assets/Icons/Plus.png" style="height:15px;width:15px"</span> Add New</a>
@@ -63,7 +63,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><span><img src="~/Assets/Icons/Cabinet.png" style="height:18px;width:18px"</span> Specializations<span class="fa arrow"></span></a>
+                            <a href="#"><span><img src="~/Assets/Icons/Positioning.png" style="height:18px;width:18px"</span> Industry<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
                                     <a href="@Url.Action("manage_industries/create", "Admin")"><span><img src="~/Assets/Icons/Plus.png" style="height:15px;width:15px"</span> Add New</a>
@@ -73,7 +73,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        <li class="hidden">
                             <a href="#"><span><img src="~/Assets/Icons/Engineer.png" style="height:18px;width:18px"</span> Office Positions <span class="fa arrow"></span> </a>
                             <ul class="nav nav-third-level">
                                 <li>
@@ -90,10 +90,10 @@
                     <a href="@Url.Action("JobBoard", "Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Presentation-.png" style="height:20px;width:22px"</span> Job Board</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("SelfService","Employees")" style="font-weight:bold"><span><img src="~/Assets/Icons/Support.png" style="height:20px;width:18px"</span> Self Service</a>
+                    <a href="@Url.Action("SelfService","Employees")" style="font-weight:bold"><span><img src="~/Assets/Icons/chat.png" style="height:20px;width:18px"</span> Self Service</a>
                 </li>
                 <li>
-                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/Agenda.png" style="height:20px;width:20px"</span> Recruitment <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
+                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/curriculum.png" style="height:20px;width:20px"</span> Recruitment <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="@Url.Action("Requisition/Create", "Admin")"><span><img src="~/Assets/Icons/Plus.png" style="height:15px;width:15px"</span> Create Requisition</a>
@@ -107,10 +107,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="@Url.Action("Onboarding", "Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Desk.png" style="height:20px;width:22px"</span> Employee Onboarding</a>
+                    <a href="@Url.Action("Onboarding", "Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/reunion.png" style="height:20px;width:22px"</span> Employee Onboarding</a>
                 </li>
                 <li>
-                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/Bedge.png" style="height:20px;width:22px"</span>  Employee Management <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
+                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/teamwork.png" style="height:20px;width:22px"</span>  Employee Management <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="@Url.Action("Restricted/add_employee", "Admin")"><span><img src="~/Assets/Icons/Man-Suit-2.png" style="height:15px;width:15px"</span> Add new Employee</a>
@@ -125,7 +125,7 @@
                     </li>*@
                 @*<a href="@Url.Action("LeaveManager","Admin")"><i class="fa fa-dashboard fa-fw"></i>Leave Mangement</a>*@
                 <li>
-                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/Bank.png" style="height:20px;width:22px"</span>  Leave Management <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
+                    <a href="#" style="font-weight:bold"><span><img src="~/Assets/Icons/analytics-1.png" style="height:20px;width:22px"</span>  Leave Management <i class="fa fa-caret-down" style="position:absolute;right:10px"></i> </a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="@Url.Action("Index", "LeaveManagement")"><span><img src="~/Assets/Icons/Box-File.png" style="height:15px;width:15px"</span> Leave Plan</a>
@@ -136,7 +136,7 @@
                         <li>
                             <a href="@Url.Action("LeaveResumption", "Admin")"><span><img src="~/Assets/Icons/Box-Incoming.png" style="height:15px;width:15px"</span> Leave Resumption</a>
                         </li>
-                        <li>
+                        <li class="hidden">
                             <a href="@Url.Action("Settings", "LeaveManagement")"><span><img src="~/Assets/Icons/Settings.png" style="height:15px;width:15px"</span> Leave Settings</a>
                         </li>
                         @*<li>
@@ -145,18 +145,18 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="@Url.Action("Trainings","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Settings.png" style="height:20px;width:22px"</span> Trainings</a>
+                    <a href="@Url.Action("Trainings","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/seo-1.png" style="height:20px;width:22px"</span> Trainings</a>
                 </li>
 
                 <li>
-                    <a href="@Url.Action("Performance","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Dashboard.png" style="height:20px;width:22px"</span> Performance Management</a>
+                    <a href="@Url.Action("Performance","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/profits.png" style="height:20px;width:22px"</span> Performance Management</a>
                 </li>
 
                 <li>
-                    <a href="@Url.Action("ComplaintManager","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Barricade.png" style="height:20px;width:22px"</span> Grievance Management</a>
+                    <a href="@Url.Action("ComplaintManager","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/team.png" style="height:20px;width:22px"</span> Grievance Management</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("ExpenseManager","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Banknote-Euro.png" style="height:20px;width:22px"</span> Expense Management</a>
+                    <a href="@Url.Action("ExpenseManager","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/networking.png" style="height:20px;width:22px"</span> Expense Management</a>
                 </li>
                 @*<li>
                         <a href="@Url.Action("Retirement","Admin")"><i class="fa fa-dashboard fa-fw"></i><span class="fa arrow"></span>Retirement and Pension</a>
@@ -173,9 +173,13 @@
                             </li>
                         </ul>
                     </li>*@
+                <li>
+                    <a href="@Url.Action("settings")"><span><img src="~/Assets/Icons/settings - copy.png" style="height:20px;width:22px"</span>Settings</a>
+                   
+                </li>
 
                 <li>
-                    <a href="@Url.Action("ExitManager","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Remove.png" style="height:20px;width:22px"</span> Employee Exit</a>
+                    <a href="@Url.Action("ExitManager","Admin")" style="font-weight:bold"><span><img src="~/Assets/Icons/Box-Outgoing.png" style="height:20px;width:22px"</span> Employee Exit</a>
                 </li>
             </ul>
         </div>
@@ -216,10 +220,12 @@ else
                 @*<li>
                         <a href="@Url.Action("Retirement","Admin")"><i class="fa fa-dashboard fa-fw"></i><span class="fa arrow"></span>Retirement and Pension</a>
                     </li>*@
-                <li>
-                    <a href="@Url.Action("ExitManager","Admin")"><i class="fa fa-balance-scale fa-fw"></i> Employee Exit</a>
-                </li>
-            </ul>
+               
+                   
+                    <li>
+                        <a href="@Url.Action("ExitManager","Admin")"><i class="fa fa-balance-scale fa-fw"></i> Employee Exit</a>
+                    </li>
+</ul>
         </div>
         <!-- /.sidebar-collapse -->
     </div>

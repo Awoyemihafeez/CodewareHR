@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Trainings</p>
+@*<p style="font-size: 22px;">Trainings</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -13,17 +13,24 @@
     <li class="active">Trainings</li>
     <li class="active">All</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+<style>
+    a:hover{
+        background-color:whitesmoke;
+    }
+</style>
+<section class="container-fluid" >
+    <div class="container-fluid">
+        <p>
+            <a class="" href="@Url.Action("Create")" style="border:1px solid lightgrey;border-radius:10px;padding:0.8em;text-decoration:none">Create</a>
+            @*@Html.ActionLink("Create New", "Create")*@
+        </p>
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">All</p>
-            </div>
-            <div class="panel-body" style="overflow-x:auto;">
-                <p>
-                    @Html.ActionLink("Create New", "Create")
-                </p>
-                <table class="table" style="font-size:80%">
+            </div>*@
+            <div class="" style="overflow-x:scroll">
+               
+                <table class="table table-striped" style="font-size:80%;margin-top:2em;border:1px solid lightgrey">
                     <tr>
                         <th>
                            Number

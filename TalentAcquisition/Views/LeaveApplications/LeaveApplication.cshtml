@@ -4,25 +4,40 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p>Leave Application</p>
+@*<p>Leave Application</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
     @*<li><a href="#">Pictures</a></li>*@
     <li class="active">Leave Application</li>
 </ol>
-<section class="container body-content">
+<style>
+    h5 {
+        color: #428bca !important;
+        text-decoration: none !important;
+    }
+
+    .panel-title > a {
+        text-decoration: none !important;
+    }
+
+        .panel-title > a:hover {
+            color: #2a6496 !important;
+            text-decoration: none !important;
+        }
+</style>
+<section class="containerfluid">
     @*<span>@ViewBag.Message</span>*@
-    <div class="row">
+    <div class="container-fluid">
         @*<a href="@Url.Action("requisition/create","Admin")" id="reqjob" class="btn"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Requisition</a>
             <span class="glyphicon glyphicon-search"></span> <input class="form-control input-sm" id="myInput" type="text" placeholder="filter requisition entries.." style="display:inline-block;outline:none" />*@
     </div>
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="panel-title">
+    <div class="containerfluid">
+        <div class="">
+            <div class="">
+                <h5 class="" style="border-bottom:1px solid lightgrey;padding-bottom:0.8em;font-weight:bold">
                     <a data-toggle="collapse" href="#collapse5">Personal Leave Application Management</a>
-                </div>
+                </h5>
             </div>
             <div id="collapse5" class="panel-collapse collapse">
                 <div class="panel-body">
@@ -37,45 +52,45 @@
     </div>
     @if (User.IsInRole("Admin"))
     {
-        <div class="row">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">
+        <div class="container-fluid">
+            <div class="">
+                <div class="">
+                    <h5 class="" style="border-bottom:1px solid lightgrey;padding-bottom:0.8em;font-weight:bold">
                         <a data-toggle="collapse" href="#collapse2">Pending Leave Applications</a>
-                    </div>
+                    </h5>
                 </div>
                 <div id="collapse2" class="panel-collapse collapse">
-                    <div class="panel-body" style="overflow-x:scroll">
+                    <div class="panel-body" style="">
                         @Html.Action("GetApplicationsList", "LeaveApplications")
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="row">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">
+        <div class="container-fluid">
+            <div class="">
+                <div class="">
+                    <h5 class="" style="border-bottom:1px solid lightgrey;padding-bottom:0.8em;font-weight:bold">
                         <a data-toggle="collapse" href="#collapse3">Approved Leave Applications</a>
-                    </div>
+                    </h5>
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body" style="overflow-x:scroll">
+                    <div class="panel-body" style="">
                         @Html.Action("GetApprovedApplicationsList", "LeaveApplications")
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="row">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">
+        <div class="container-fluid">
+            <div class="">
+                <div class="">
+                    <h5 class="" style="border-bottom:1px solid lightgrey;padding-bottom:0.8em;font-weight:bold">
                         <a data-toggle="collapse" href="#collapse4">Rejected Leave Applications</a>
-                    </div>
+                    </h5>
                 </div>
                 <div id="collapse4" class="panel-collapse collapse">
-                    <div class="panel-body" style="overflow-x:scroll">
+                    <div class="panel-body" style="">
                         @Html.Action("GetRejectedApplicationsList", "LeaveApplications")
                     </div>
                 </div>

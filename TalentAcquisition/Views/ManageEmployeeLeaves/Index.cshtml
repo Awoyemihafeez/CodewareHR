@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<h2>Leave Plan</h2>
+@*<h2>Leave Plan</h2>*@
 
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
@@ -28,22 +28,22 @@
             text-decoration: none !important;
         }
 </style>
-<section class="container">
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="panel-title">
+<section class="container-fluid">
+    <div class="container-fluid">
+        <div class="">
+            <div class="">
+                @*<div class="panel-title">
                     <a data-toggle="collapse" href="#collapse2"><h5 style="font-weight:bold">Leave Plan History</h5></a>
-                </div>
+                </div>*@
             </div>
-            <div id="collapse2" class="panel-collapse collapse">
-                <div class="panel-body" style="overflow-y:scroll; height: 400px; font-size: 80%" >
-                    <p>
+            <div id="" class="">
+                <div class="" >
+                    @*<p>
                         @Html.ActionLink("Create New", "Create")
-                    </p>
+                    </p>*@
 
 
-                    <table class="table">
+                    <table class="table table-striped" style="border:1px solid lightgrey">
                         <tr>
                             <th style="width:8em">
                                 @*@Html.DisplayNameFor(model => model.EmployeeId)*@
@@ -133,7 +133,7 @@
 
                                     @if (item.Status == TalentAcquisition.BusinessLogic.UpdatedDomain.ManageEmployeeLeave.LeaveStatus.Pending)
                                     {
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                                         <span> </span> @Html.ActionLink("Delete", "Delete", new { id = item.ID });
                                     }
                                     @if (item.Status == TalentAcquisition.BusinessLogic.UpdatedDomain.ManageEmployeeLeave.LeaveStatus.Approved)

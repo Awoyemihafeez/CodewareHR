@@ -5,81 +5,18 @@
     Layout = "~/Views/Shared/_PublicLayout.cshtml";
 }
 
-<div class="mainbody" style="color:black">
-    <div class="container body-content">
-        <div class="col-lg-8">
-            <h2>Vaccancy Details</h2>
-            <h3>Job Title: @Html.DisplayFor(model => model.JobTitle)</h3>
-            <br />
-            <br />
-            <div class="row container" style="line-height:2em">
-                
-                <p>
-                   @* Company Profile *@
-                </p>
-                <h4>Educational Qualifications</h4>
-                <p>
-                    Candidates must possess the following qualifications among others:
-                    @* List out Qualifications *@
-                    <ul>
-                        <li>BSc. 2ND Class Lower and Higher National Diploma or its equivalent in Electrical or Mechanical Engineering from recognized and accredited institutions</li>
-                        
-                        @{
-                            string qualifications = Model.EducationalRequirements;
-                            if ((qualifications != "") && (qualifications != null))
-                            {
-                                char[] delimiters = new char[] { '\r', '\n' };
-                                string[] splitqualifications = qualifications.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-                                foreach (string entry in splitqualifications)
-                                {
-                                    <li>@entry</li>
-                                }
-                            }
-                        }
-                        <li>Industrial experience will be an added advantage</li>
-                    </ul>     
-                </p>
-                <h4>Age Limit</h4>
-                <p>
-                    Applicants should not be more than @Model.AgeLimit years old as at the time of application.
-                </p>
-                <h4>Job Responsibilities</h4>
-                <ul>
+<div class="mainbody" style="">
+    <div class="container-fluid">
+        <div class="col-lg-3">
 
-                </ul>
-                <p>
-                    @Html.DisplayFor(model => model.JobDescription)
-                    @* List out Job Responsibilities *@
-                </p>
-                <h4>Method Of Application</h4>
-                <p>
-                    Interested and qualified candidates should visit @Html.ActionLink(@Url.Action("Portal","Applicant"), @Url.Action("Portal", "Applicant")) to apply.
-                    Please note that only applications made on the website will be accepted. Candidates who meet the stated criteria will be contacted via email or by phone.
-                    Applicants shall sit for a Computer Based Test and successful candidates will be invited for an oral interview & medical examination.
-                    Application closes @Model.ApplicationDeadline weeks from the date of this advertisement.
-                    Only Shortlisted candidates will be contacted.
-                </p>
-            </div>
-        </div>
-        <div class="col-lg-4">
-           
             <div class="row " style="margin-top:5em;margin-bottom:5em">
-                  @if (Model.ClosingDate > DateTime.Now)
-                  {
+                @if (Model.ClosingDate > DateTime.Now)
+                {
                     <a class="btn-default btn btn-success" style="padding:1em" href="@Url.RouteUrl("ApplyLink", new { id = Model.JobRequisitionID })">Apply For Job</a>
-                  }
-            </div> 
+                }
+            </div>
             <div class="row">
-                <style>
-                    dt,dd
-                    {
-                        padding-bottom:0.5em;
-                    }
-                    .row .dl-horizontal{
-                        border:1px solid gray;
-                        padding:0.2em;
-                    }
-                </style>
+           
                 <dl class="dl-horizontal">
                     <dt>
                         @Html.DisplayNameFor(model => model.JobTitle)
@@ -94,13 +31,13 @@
                     </dt>
 
                     <dd>
-                        @if(Model.ClosingDate > DateTime.Now)
+                        @if (Model.ClosingDate > DateTime.Now)
                         {
-                           <p class="alert-success">Ongoing</p> 
+                            <p class="alert-success" style="width: 9em;">Ongoing</p>
                         }
                         else
                         {
-                           <p class="alert-danger">Closed</p> 
+                            <p class="alert-danger" style="width: 9em;">Closed</p>
                         }
                     </dd>
 
@@ -131,7 +68,62 @@
                 </dl>
 
             </div>
-        </div>  
+        </div>
+        
+        <div class="col-lg-8" style="margin-top:4em;border-left: 1px solid lightgrey;">
+            <h2>Vaccancy Details</h2>
+            <h4><small><i>Job Title: @Html.DisplayFor(model => model.JobTitle)</i></small></h4>
+          
+            <div class="row container" style="line-height:2em;margin-top: 1em;">
+                
+                <p>
+                   @* Company Profile *@
+                </p>
+                <h4><strong>Educational Qualifications</strong></h4>
+                <p>
+                    Candidates must possess the following qualifications among others:
+                    @* List out Qualifications *@
+                    <ul>
+                        <li>BSc. 2ND Class Lower and Higher National Diploma or its equivalent in Electrical or Mechanical Engineering from recognized and accredited institutions</li>
+                        
+                        @{
+                            string qualifications = Model.EducationalRequirements;
+                            if ((qualifications != "") && (qualifications != null))
+                            {
+                                char[] delimiters = new char[] { '\r', '\n' };
+                                string[] splitqualifications = qualifications.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                                foreach (string entry in splitqualifications)
+                                {
+                                    <li>@entry</li>
+                                }
+                            }
+                        }
+                        <li>Industrial experience will be an added advantage</li>
+                    </ul>     
+                </p>
+                <h4><strong>Age Limit</strong></h4>
+                <p>
+                    Applicants should not be more than @Model.AgeLimit years old as at the time of application.
+                </p>
+                <h4><strong>Job Responsibilities</strong></h4>
+                <ul>
+
+                </ul>
+                <p>
+                   @Html.DisplayFor(model => model.JobDescription)
+                    @* List out Job Responsibilities *@
+                </p>
+                <h4><strong>Method Of Application</strong></h4>
+                <p>
+                    Interested and qualified candidates should visit @Html.ActionLink(@Url.Action("Portal","Applicant"), @Url.Action("Portal", "Applicant")) to apply.
+                    Please note that only applications made on the website will be accepted. Candidates who meet the stated criteria will be contacted via email or by phone.
+                    Applicants shall sit for a Computer Based Test and successful candidates will be invited for an oral interview & medical examination.
+                    Application closes @Model.ApplicationDeadline weeks from the date of this advertisement.
+                    Only Shortlisted candidates will be contacted.
+                </p>
+            </div>
+        </div>
+       
     </div>
 </div>
     

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Appraisal List</p>
+@*<p style="font-size: 22px;">Appraisal List</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -13,52 +13,70 @@
     <li class="active">Performance</li>
     <li class="active">Appraisal List</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+<section class="container-fluid">
+    <div class="container-fluid">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">Appraisal List</p>
-            </div>
-            <div class="panel-body" style="overflow-x:scroll">
+            </div>*@
+            <div class="">
+                <style>
+                    a:hover{
+background-color:whitesmoke
+                    }
+                </style>
                 <p>
-                    @Html.ActionLink("Create New", "Appraisal/Personal", "Performance")
+                    <a class="" href="@Url.Action( "Appraisal/Personal", "Performance")" style="    border: 1px solid lightgrey;
+    padding: 0.8em;
+    border-radius: 10px;
+    text-decoration: none;">Create</a>
+                    @*@Html.ActionLink("Create New", "Appraisal/Personal", "Performance")*@
                 </p>
-                <table class="table" style="font-size:80%">
+                <table class="table table-striped" style="font-size:79%;border:1px solid lightgrey;margin-top: 2em;">
                     <tr>
                         <th>
                             @Html.DisplayNameFor(model => model.No)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.AppraisalPeriodCode)
+                            @*@Html.DisplayNameFor(model => model.AppraisalPeriodCode)*@
+                            Appraisal Period Code
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.AppraisalType)
+                            @*@Html.DisplayNameFor(model => model.AppraisalType)*@
+                            Appraisal Type
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.AppraisalClass)
+                            @*@Html.DisplayNameFor(model => model.AppraisalClass)*@
+                            Department
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.AppraiseeCode)
+                            @*@Html.DisplayNameFor(model => model.AppraiseeCode)*@
+                            Appraisee ID
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.AppraisalSupervisor)
+                            @*@Html.DisplayNameFor(model => model.AppraisalSupervisor)*@
+                            Supervisor
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.CreationDate)
+                            @*@Html.DisplayNameFor(model => model.CreationDate)*@
+                            Date
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.AppraisalName)
+                            @*@Html.DisplayNameFor(model => model.AppraisalName)*@
+                            Appraisee
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.AppraisalJobTitle)
+                            @*@Html.DisplayNameFor(model => model.AppraisalJobTitle)*@
+                            Job Title
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.AppraisalSupervisorName)
+                            @*@Html.DisplayNameFor(model => model.AppraisalSupervisorName)*@
+                            Supervisor Name
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Status)
                         </th>
-                        <th></th>
+                        <th>Modification</th>
                     </tr>
 
                     @foreach (var item in Model)

@@ -15,9 +15,9 @@
             @Html.DisplayNameFor(model => model.DateCreated)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StartDate)
+            Start Date
         </th>
-        <th></th>
+        <th>Modification</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -38,7 +38,7 @@
             @item.StartDate.Humanize()
         </td>
         <td>
-            <a href="/Onboarding/Guide/Customize/@item.Name/@item.ID" class="btn btn-warning btn-xs"> View</a>
+            <a href="/Onboarding/Guide/Customize/@item.Name/@item.ID" class=""> View</a>
         </td>
     </tr>
 }

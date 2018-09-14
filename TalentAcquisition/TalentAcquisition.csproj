@@ -1263,6 +1263,7 @@
     <Content Include="Views\LeaveResumptions\GetRejectedList.cshtml" />
     <Content Include="Views\LeaveResumptions\LeaveApplicationExisting.cshtml" />
     <Content Include="Views\Shared\Unauthorized.cshtml" />
+    <Content Include="Views\Employees\Enter a file name" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<div style="padding-top:2em;"></div>
-<p style="font-size: 22px;">Employee Profile</p>
+@*<div style="padding-top:2em;"></div>
+<p style="font-size: 22px;">Employee Profile</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -19,21 +19,30 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <section class="container body-content">
-        <div class="row">
-            <div class="col-md-10">
-                <input type="submit" value="Save" class="btn btn-default btn-primary col-md-4" />
-            </div>
-            <br/><br/>
-        </div>
-        <div class="panel panel-default panel-primary">
-            <div class="panel-heading">
-                <h4 class="panel-title">
+    <section class="container-fluid">
+        <style>
+            h5, .h5 {
+            border-bottom: 1px solid lightgrey;
+            padding-bottom: 0.8em;
+            font-size: 14px;
+
+                    }
+            a:hover{text-decoration:none !important;}
+            a:active::after{text-decoration:none !important;}
+                    .form-horizontal .form-group {
+                    padding-left: 13em;
+                    margin-right: -15px;
+                    margin-left: -15px;
+                    }
+        </style>
+        <div class="">
+            <div class="">
+                <h5 class="">
                     <a data-toggle="collapse" href="#collapse1">Personal Details</a>
-                </h4>
+                </h5>
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">
+                <div class="">
                     <div class="form-horizontal">
                         <br />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -111,14 +120,14 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-default panel-primary">
-            <div class="panel-heading">
-                <h4 class="panel-title">
+        <div class="">
+            <div class="">
+                <h5 class="">
                     <a data-toggle="collapse" href="#collapse2">Contact Information</a>
-                </h4>
+                </h5>
             </div>
             <div id="collapse2" class="panel-collapse collapse in">
-                <div class="panel-body">
+                <div class="">
                     <div class="form-horizontal">
                         <div class="form-group">
                             @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "col-md-4" })
@@ -152,14 +161,14 @@
                 </div>
            </div>
         </div>
-        <div class="panel panel-default panel-primary">
-            <div class="panel-heading">
-                <h4 class="panel-title">
+        <div class="">
+            <div class="">
+                <h5 class="">
                     <a data-toggle="collapse" href="#collapse3">Dependents/Next of Kin</a>
-                </h4>
+                </h5>
             </div>
             <div id="collapse3" class="panel-collapse collapse in">
-                <div class="panel-body">
+                <div class="">
                     <div class="form-horizontal">
                         <div class="form-group">
                             @Html.LabelFor(model => model.NextofKinName, htmlAttributes: new { @class = "col-md-4" })
@@ -193,63 +202,63 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-default panel-primary">
-            <div class="panel-heading">
-                <h4 class="panel-title">
+        <div class="">
+            <div class="">
+                <h5 class="">
                     <a data-toggle="collapse" href="#collapse4">Immigration</a>
-                </h4>
+                </h5>
             </div>
             <div id="collapse4" class="panel-collapse collapse in">
-                <div class="panel-body">
+                <div class="">
                 </div>
             </div>
         </div>
-        <div class="panel panel-default panel-primary">
-            <div class="panel-heading">
-                <h4 class="panel-title">
+        <div class="">
+            <div class="">
+                <h5 class="">
                     <a data-toggle="collapse" href="#collapse5">Work Experience</a>
-                </h4>
+                </h5>
             </div>
             <div id="collapse5" class="panel-collapse collapse in">
-                <div class="panel-body">
+                <div class="">
                 </div>
             </div>
         </div>
-        <div class="panel panel-default panel-primary">
-            <div class="panel-heading">
-                <h4 class="panel-title">
+        <div class="">
+            <div class="">
+                <h5 class="">
                     <a data-toggle="collapse" href="#collapse6">Education</a>
-                </h4>
+                </h5>
             </div>
             <div id="collapse6" class="panel-collapse collapse in">
-                <div class="panel-body">
+                <div class="">
                 </div>
             </div>
         </div>
-        <div class="panel panel-default panel-primary">
-            <div class="panel-heading">
-                <h4 class="panel-title">
+        <div class="">
+            <div class="">
+                <h5 class="">
                     <a data-toggle="collapse" href="#collapse7">Skills</a>
-                </h4>
+                </h5>
             </div>
             <div id="collapse7" class="panel-collapse collapse in">
-                <div class="panel-body">
+                <div class="">
                     <div ng-controller="EmployeeController" ng-init="setEmployeeId(@Model.ID)"> 
                         <style>
                             .btn-default,.btn-primary,.btn-success,.btn-info,.btn-warning,.btn-danger {
                             border-radius:23px;
                         }
                         </style>
-                        <ul class="nav nav-pills">
+                        <ul class="nav nav-pills" style="margin-bottom: 1em;">
 
                             <li ng-repeat="skill in employeeskills" class="active">
                                <a ng-click="removeSkill(skill.ID)">{{skill.Name}}</a>
                             </li>
                         </ul> 
                         <form>
-                        <hr/>
+                 
                             <input type="text" ng-model="skillName" class="form-control input-sm col-md-4">
-                            <input type="button" ng-click="addSkill()" value="Add Skill" class="btn btn-default btn-primary btn-sm">
+                            <input type="button" ng-click="addSkill()" value="Add Skill" class="btn btn-default btn-primary btn-sm" style="margin-left:1em">
                         </form>
                     </div>
 
@@ -259,14 +268,14 @@
 
           </div>
 
-        <div class="panel panel-default panel-primary">
-            <div class="panel-heading">
-                <h4 class="panel-title">
+        <div class="" style="@*margin-top: 3em;*@">
+            <div class="">
+                <h5 class="">
                     <a data-toggle="collapse" href="#collapse8">Other Details</a>
-                </h4>
+                </h5>
             </div>
             <div id="collapse8" class="panel-collapse collapse in">
-                <div class="panel-body">
+                <div class="">
                     <div>
                         @foreach (var item in Model.Groups)
                         {
@@ -283,6 +292,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <input type="submit" value="Save" class="btn  btn-info " />
+            </div>
+
         </div>
     </section>
 }

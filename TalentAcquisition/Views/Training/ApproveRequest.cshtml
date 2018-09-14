@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Trainings</p>
+@*<p style="font-size: 22px;">Trainings</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -13,28 +13,25 @@
     <li class="active">Trainings</li>
     <li class="active">Approve Request</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+
+<section class="container-fluid">
+    <div class="container-fluid">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">Approve Training Request</p>
-            </div>
-            <div class="panel-body">
+            </div>*@
+            <div class="">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
-                    <style>
-                        label {
-                            font-size: 80%;
-                        }
-                    </style>
-                    <div class="form-horizontal" ng-controller="TrainingRecordController">
-                        <div class="col-md-12">
-                            <div class="col-md-6">
+                    
+                    <div class="form-horizontal" style="padding-left: 3em;padding-top: 2em; font-size: 80%" ng-controller="TrainingRecordController">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="">
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.ApplicationNo, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="ApplicationNo" name="ApplicationNo" value="@Model.ApplicationNo" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="ApplicationNo" name="ApplicationNo" value="@Model.ApplicationNo" class="form-control input-sm" ng-readonly="true" />
                                         @*@Html.EditorFor(model => model.ApplicationNo, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.ValidationMessageFor(model => model.ApplicationNo, "", new { @class = "text-danger" })
                                     </div>
@@ -43,7 +40,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.ApplicationDate, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="ApplicationDate" name="ApplicationDate" value="@Model.ApplicationDate" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="ApplicationDate" name="ApplicationDate" value="@Model.ApplicationDate" class="form-control input-sm" ng-readonly="true" />
                                         @*@Html.EditorFor(model => model.ApplicationDate, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.ValidationMessageFor(model => model.ApplicationDate, "", new { @class = "text-danger" })
                                     </div>
@@ -52,7 +49,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.EmployeeNo, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="EmployeeNo" name="EmployeeNo" value="@Model.EmployeeNo" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="EmployeeNo" name="EmployeeNo" value="@Model.EmployeeNo" class="form-control input-sm" ng-readonly="true" />
                                         @*<select class="form-control" id="EmployeeNumber" name="EmployeeNumber" ng-model="SelectedEmployee"
                                                 ng-options="item.Number for item in employees track by item.Number" ng-change="selectedemployeechanged()" ng-readonly="true"></select>*@
 
@@ -63,7 +60,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.EmployeeName, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="EmployeeName" name="EmployeeName" value="@Model.EmployeeName" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="EmployeeName" name="EmployeeName" value="@Model.EmployeeName" class="form-control input-sm" ng-readonly="true" />
                                         @*<select class="form-control" id="EmployeeNumber" name="EmployeeNumber" ng-model="SelectedEmployee"
                                             ng-options="item.Number for item in employees track by item.Number" ng-change="selectedemployeechanged()"></select>*@
                                         @*@Html.EditorFor(model => model.EmployeeName, new { htmlAttributes = new { @class = "form-control" } })*@
@@ -74,7 +71,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.EmployeeDepartment, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="EmployeeDepartment" name="EmployeeDepartment" value="@Model.EmployeeDepartment" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="EmployeeDepartment" name="EmployeeDepartment" value="@Model.EmployeeDepartment" class="form-control input-sm" ng-readonly="true" />
                                         @*@Html.EditorFor(model => model.EmployeeDepartment, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.ValidationMessageFor(model => model.EmployeeDepartment, "", new { @class = "text-danger" })
                                     </div>
@@ -82,7 +79,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.TrainingGroupNo, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="TrainingGroupNo" name="TrainingGroupNo" value="@Model.TrainingGroupNo" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="TrainingGroupNo" name="TrainingGroupNo" value="@Model.TrainingGroupNo" class="form-control input-sm" ng-readonly="true" />
                                         @*@Html.EditorFor(model => model.TrainingGroupNo, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.ValidationMessageFor(model => model.TrainingGroupNo, "", new { @class = "text-danger" })
                                     </div>
@@ -91,7 +88,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.ParticipantNo, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="ParticipantNo" name="ParticipantNo" value="@Model.ParticipantNo" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="ParticipantNo" name="ParticipantNo" value="@Model.ParticipantNo" class="form-control input-sm" ng-readonly="true" />
                                         @*@Html.EditorFor(model => model.ParticipantNo, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.ValidationMessageFor(model => model.ParticipantNo, "", new { @class = "text-danger" })
                                     </div>
@@ -100,7 +97,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.TrainingCourseCode, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="TrainingCourseCode" name="TrainingCourseCode" value="@Model.TrainingCourseCode" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="TrainingCourseCode" name="TrainingCourseCode" value="@Model.TrainingCourseCode" class="form-control input-sm" ng-readonly="true" />
                                         @*@Html.DropDownList("TrainingCourseCode", null, htmlAttributes: new { @class = "form-control" })*@
                                         @Html.ValidationMessageFor(model => model.TrainingCourseCode, "", new { @class = "text-danger" })
                                     </div>
@@ -109,7 +106,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.TrainingProviderCode, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="TrainingProviderCode" name="TrainingProviderCode" value="@Model.TrainingProviderCode" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="TrainingProviderCode" name="TrainingProviderCode" value="@Model.TrainingProviderCode" class="form-control input-sm" ng-readonly="true" />
 
                                         @*@Html.DropDownList("TrainingProviderCode", null, htmlAttributes: new { @class = "form-control" })*@
                                         @Html.ValidationMessageFor(model => model.TrainingProviderCode, "", new { @class = "text-danger" })
@@ -118,7 +115,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.ProviderName, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" id="ProviderName" name="ProviderName" value="@Model.ProviderName" class="form-control" ng-readonly="true" />
+                                        <input type="text" id="ProviderName" name="ProviderName" value="@Model.ProviderName" class="form-control input-sm" ng-readonly="true" />
 
                                         @*@Html.EditorFor(model => model.ProviderName, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.ValidationMessageFor(model => model.ProviderName, "", new { @class = "text-danger" })
@@ -127,11 +124,13 @@
 
 
                             </div>
-                            <div class="col-md-6">
+                            </div>
+                        <div class="col-md-12 col-lg-6">
+                            <div class="">
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                         @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -139,15 +138,15 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Purpose, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        @Html.EditorFor(model => model.Purpose, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Purpose, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                         @Html.ValidationMessageFor(model => model.Purpose, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "col-md-4" })
-                                    <div class="col-md-8">
-                                        <input type="text" data-date-format="DD-MM-YYYY" value="@DateTime.Now.ToShortDateString()" id="StartDate" name="StartDate" class="form-control" ng-readonly="true" />
+                                    <div class="col-md-8"> 
+                                        <input type="text" data-date-format="DD-MM-YYYY" value="@DateTime.Now.ToShortDateString()" id="StartDate" name="StartDate" class="form-control input-sm" ng-readonly="true" />
                                         @*@Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
                                     </div>
@@ -156,7 +155,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.StopDate, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" data-date-format="DD-MM-YYYY" value="@DateTime.Now.ToShortDateString()" id="StopDate" name="StopDate" class="form-control" ng-readonly="true" />
+                                        <input type="text" data-date-format="DD-MM-YYYY" value="@DateTime.Now.ToShortDateString()" id="StopDate" name="StopDate" class="form-control input-sm" ng-readonly="true" />
                                         @*@Html.EditorFor(model => model.StopDate, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.ValidationMessageFor(model => model.StopDate, "", new { @class = "text-danger" })
                                     </div>
@@ -165,7 +164,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                         @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -173,7 +172,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.DurationUnits, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input id="DurationUnits" name="DurationUnits" class="form-control" value="Hours" ng-readonly="true" />
+                                        <input id="DurationUnits" name="DurationUnits" class="form-control input-sm" value="Hours" ng-readonly="true" />
                                         @Html.ValidationMessageFor(model => model.DurationUnits, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -181,7 +180,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                         @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -191,14 +190,14 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.ApprovedCost, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        @Html.EditorFor(model => model.ApprovedCost, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.ApprovedCost, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                         @Html.ValidationMessageFor(model => model.ApprovedCost, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.EstimatedCost, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        <input type="text" value="@Model.EstimatedCost" id="EstimatedCost" name="EstimatedCost" class="form-control" ng-readonly="true" />
+                                        <input type="text" value="@Model.EstimatedCost" id="EstimatedCost" name="EstimatedCost" class="form-control input-sm" ng-readonly="true" />
                                         @*@Html.EditorFor(model => model.EstimatedCost, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.ValidationMessageFor(model => model.EstimatedCost, "", new { @class = "text-danger" })
                                     </div>
@@ -206,7 +205,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "col-md-4" })
                                     <div class="col-md-8">
-                                        @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                         @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -216,13 +215,18 @@
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                              <a class="btn btn-sm" href="javascript:void(0)">
-                                  <img src="~/Assets/Icons/OK.png" height="25" width="25" />
-                                  <input type="submit" value="Approve Request" class="" />
-                              </a>
+                            <div class="col-md-offset-2 col-md-10" style="padding-left: 28em; margin-top: 3em">
+                                <input type="submit" value="Approve Request" class="btn btn-info" />
                             </div>
                         </div>
+
+                        @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-10" style="    padding-left: 23em; margin-top: 3em">
+                              <div class="btn btn-md btn-info" href="javascript:void(0)">
+                                  
+                                  @*<img src="~/Assets/Icons/OK.png" height="25" width="25" />*@
+                                  @*<input type="submit" value="Approve Request" class="" />*@
+                          
                     </div>
                 }
 

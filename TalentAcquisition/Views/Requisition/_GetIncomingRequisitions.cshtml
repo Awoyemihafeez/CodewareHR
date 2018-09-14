@@ -30,18 +30,18 @@
         <td>
             @if ((int)item.Status == 0)
             {
-                <a href="@Url.RouteUrl("Close",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-primary" style="">
-                    Close
+                <a href="@Url.RouteUrl("Close",new { id = item.JobRequisitionID, details = item.JobTitle })" class="" style="">
+                    Close |
                 </a>
-                <a href="/Admin/Requisition/Approve/@item.JobRequisitionID/@item.JobTitle" class="btn btn-xs btn-success" style="">View and Approve</a>
-                <a href="/Admin/Requisition/Reject/@item.JobRequisitionID/@item.JobTitle" class="btn btn-xs btn-danger" style="">Reject</a>
+                <a href="/Admin/Requisition/Approve/@item.JobRequisitionID/@item.JobTitle" class="" style="">View </a>
+                <a href="/Admin/Requisition/Reject/@item.JobRequisitionID/@item.JobTitle" class="hidden" style="">Reject |</a>
             }
             else
             {
-                <a href="@Url.RouteUrl("EditRequisitionLink",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-primary" style="">
-                    Modify
-                </a><span>|</span>
-                <a href="@Url.RouteUrl("Close",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-danger" style="">
+                <a href="@Url.RouteUrl("EditRequisitionLink",new { id = item.JobRequisitionID, details = item.JobTitle })" class="" style="">
+                    Modify |
+                </a>
+                <a href="@Url.RouteUrl("Close",new { id = item.JobRequisitionID, details = item.JobTitle })" class="" style="">
                     Close
                 </a>
                 @*<a href="@Url.Action( "Template/Customize/" + item.ID, "Onboarding")" class="btn btn-sm btn-primary" style=""> Details</a>*@

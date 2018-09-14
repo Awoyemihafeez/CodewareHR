@@ -4,54 +4,84 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Settings</p>
+@*<p style="font-size: 22px;">Settings</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
     @*<li><a href="#">Pictures</a></li>*@
     <li class="active">Settings</li>
 </ol>
+<style>
+    h5 {
+        color: #428bca !important;
+        text-decoration: none !important;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+
+        a:hover {
+            color: #2a6496;
+            text-decoration: none;
+        }
+
+    h5 {
+        border-bottom: 1px solid lightgrey;
+        padding-bottom: 0.8em;
+    }
+</style>
+
 <section class="container body-content">
     <div class="row">
-        <div class="panel panel-primary hidden">
-            <div class="panel-heading">
-                <p class="">Basic Settings</p>
+        <div class=" hidden">
+            <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse0"> <h5 style="font-weight:bold">Basic Settings</h5></a>
+                </div>
             </div>
-            <div class="panel-body">
-                <ul>              
-                    @if (User.IsInRole("Admin"))
+            <div id="collapse0" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul>
+                        @if (User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Job Requisition Management", "Job", "Settings")</li>
-                        <li>@Html.ActionLink("Onboarding", "Onboarding", "Settings")</li>
-                        <li>@Html.ActionLink("Expense Management", "Expenses", "Settings")</li>
-                        <li>@Html.ActionLink("Personnel Management", "Personnel", "Settings")</li>
-                        <li>@Html.ActionLink("Leave Management", "Leave", "Settings")</li>
-                        <li>@Html.ActionLink("Performance Management", "Performance", "Settings")</li>
-                        <li>@Html.ActionLink("Trainings", "Trainings", "Settings")</li>
+                    <li>@Html.ActionLink("Job Requisition Management", "Job", "Settings")</li>
+                    <li>@Html.ActionLink("Onboarding", "Onboarding", "Settings")</li>
+                    <li>@Html.ActionLink("Expense Management", "Expenses", "Settings")</li>
+                    <li>@Html.ActionLink("Personnel Management", "Personnel", "Settings")</li>
+                    <li>@Html.ActionLink("Leave Management", "Leave", "Settings")</li>
+                    <li>@Html.ActionLink("Performance Management", "Performance", "Settings")</li>
+                    <li>@Html.ActionLink("Trainings", "Trainings", "Settings")</li>
                     }
-                </ul>
-            </div>  
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <p class="">Rights and Priviledge Settings</p>
+        <div class="">
+            <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse1"> <h5 style="font-weight:bold">Rights and Priviledge Settings</h5></a>
+                </div>
             </div>
-            <div class="panel-body">
-                <ul>
-                    @if (User.IsInRole("Admin"))
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul style="list-style:none !important">
+                        @if (User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Permissions List", "All", "Permissions")</li>
-                        <li>@Html.ActionLink("Groups List", "All", "Groups")</li> 
-                        <li>@Html.ActionLink("Add User To Group", "Groups/AddUser", "Permissions")</li>
+                    <li>@Html.ActionLink("Permissions List", "All", "Permissions")</li>
+                    <li>@Html.ActionLink("Groups List", "All", "Groups")</li>
+                    <li>@Html.ActionLink("Add User To Group", "Groups/AddUser", "Permissions")</li>
                     }
-                    @if (User.IsInRole("SuperAdmin"))
+                        @if (User.IsInRole("SuperAdmin"))
                     {
                     <li class="hidden">@Html.ActionLink("Create New User Permission", "Create", "Permissions")</li>
                     <li>@Html.ActionLink("Create New Permission Groups", "Create", "Groups")</li>
                     }
-                </ul>
+                    </ul>
+                </div>
+                </div>
             </div>
-        </div>
+
         <div class="panel panel-primary hidden">
             <div class="panel-heading">
                 <p class="">File Settings</p>
@@ -65,19 +95,23 @@
                 </ul>
             </div>
          </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <p class="">Document Approval WorkFlow</p>
+
+        <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse2"> <h5 style="font-weight:bold">Rights and Priviledge Settings</h5></a>
+                </div>
             </div>
-            <div class="panel-body">
-                <ul>
-                    @if (User.IsInRole("SuperAdmin") | User.IsInRole("Admin"))
+            <div id="collapse2" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul style="list-style:none !important">
+                        @if (User.IsInRole("SuperAdmin") | User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("View Approval Flows", "Flows/All", "Approval")</li>
-                        <li>@Html.ActionLink("Create Approval Flow", "Flows/Create", "Approval")</li>
-                        <li>@Html.ActionLink("View Approval Entries", "Entries/All", "Approval")</li>
+                    <li>@Html.ActionLink("View Approval Flows", "Flows/All", "Approval")</li>
+                    <li>@Html.ActionLink("Create Approval Flow", "Flows/Create", "Approval")</li>
+                    <li>@Html.ActionLink("View Approval Entries", "Entries/All", "Approval")</li>
                     }
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

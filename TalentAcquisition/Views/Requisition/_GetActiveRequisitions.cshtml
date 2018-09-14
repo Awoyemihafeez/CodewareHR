@@ -49,26 +49,26 @@
             <td>
                 @if ((int)item.Status == 2)
                 {
-                    <a href="@Url.RouteUrl("MatchSkill",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-info">
-                        Skill Matching
+                    <a href="@Url.RouteUrl("MatchSkill",new { id = item.JobRequisitionID, details = item.JobTitle })" class="">
+                        Skill Matching |
                     </a>
-                    <a href="@Url.RouteUrl("Close",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-danger">
-                        Close
+                    
+                    <a href="@Url.RouteUrl("RequisitionLink",new { id = item.JobRequisitionID, details = item.JobTitle })" class="">Details </a>
+                    <a href="@Url.RouteUrl("Close",new { id = item.JobRequisitionID, details = item.JobTitle })" class="">
+                        | Close
                     </a>
-                    <a href="@Url.RouteUrl("RequisitionLink",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-primary">Details</a>
-
                 }
                 else
                 {
-                    <a href="@Url.RouteUrl("MatchSkill",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-info">
-                        Skill Matching
+                    <a href="@Url.RouteUrl("MatchSkill",new { id = item.JobRequisitionID, details = item.JobTitle })" class="">
+                        Skill Matching |
                     </a>
-                    <a href="@Url.RouteUrl("PublishLink",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-warning">
-                        Publish
+                    <a href="@Url.RouteUrl("PublishLink",new { id = item.JobRequisitionID, details = item.JobTitle })" class="">
+                        Publish |
                     </a>
-                    <a href="@Url.RouteUrl("RequisitionLink",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-primary">Details</a>
-                    <a href="@Url.RouteUrl("Close",new { id = item.JobRequisitionID, details = item.JobTitle })" class="btn btn-xs btn-danger">
-                        Close
+                    <a href="@Url.RouteUrl("RequisitionLink",new { id = item.JobRequisitionID, details = item.JobTitle })" class="">Details </a>
+                    <a href="@Url.RouteUrl("Close",new { id = item.JobRequisitionID, details = item.JobTitle })" class="">
+                       | Close
                     </a>
                 }
 

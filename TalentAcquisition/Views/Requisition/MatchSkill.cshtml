@@ -14,7 +14,18 @@
     </script>
 }
 <style>
-    .padding {
+    .row{
+        background-color: whitesmoke;
+        margin-top: 3.6em;
+    }
+    h5{
+        
+    }
+    h3{
+       
+        color:lightgreen;
+    }
+    /*.padding {
         padding-top: 3em;
     }
 
@@ -36,38 +47,38 @@
     .contain {
         width: 80%;
         margin: 0 auto;
-    }
+    }*/
 </style>
 <!-- Banner IS Fixed-->
 <div class="banner">
     <div class="contain">
         <div class="row">
-            <div class="col-md-2">
-                <h3 style="font-size:95%">Position</h3>
-                <h5>@Model.JobTitle</h5>
+            <div class="col-md-2" style="padding-top:2em;padding-left:5em">
+                <h3 style="">Position</h3>
+                <h5 class="text-muted">@Model.JobTitle</h5>
             </div>
-            <div class="col-md-10">
-                <h3 class="text-center" style="font-size:95%">Application Summary</h3>
-                <div class="row">
-                    <div class="col-md-3">
-                        <h5 class="text-center">Total Applications</h5>
-                        <h3 class="text-center">@Model.JobApplications.Count</h3>
-                    </div>
-                    <div class="col-md-3">
-                        <h5 class="text-center">Total Matched</h5>
-                        <h3 class="text-center">@{List<MatchedApplicant> items = (List<MatchedApplicant>)ViewBag.MatchedApplicants;}@items.Count</h3>
+            <div class="col-md-10" >
+                <h3 class="text-center">Application Summary</h3>
+                <div class="row" style="margin-top:1em !important">
+                    <div class="col-md-2">
+                        <h5 class="text-center text-muted">Total Applications</h5>
+                        <h2 class="text-center">@Model.JobApplications.Count</h2>
                     </div>
                     <div class="col-md-2">
-                        <h5 class="text-center">Screened</h5>
-                        <h3 class="text-center">@Model.JobApplications.Where(o => o.ApplicationStatus == TalentAcquisition.Core.Domain.ApplicationStatus.Screened).Count()</h3>
+                        <h5 class="text-center text-muted">Total Matched</h5>
+                        <h2 class="text-center">@{List<MatchedApplicant> items = (List<MatchedApplicant>)ViewBag.MatchedApplicants;}@items.Count</h2>
                     </div>
                     <div class="col-md-2">
-                        <h5 class="text-center">Interviewed</h5>
-                        <h3 class="text-center">@Model.JobApplications.Where(o => o.ApplicationStatus == TalentAcquisition.Core.Domain.ApplicationStatus.Interview).Count()</h3>
+                        <h5 class="text-center text-muted">Screened</h5>
+                        <h2 class="text-center">@Model.JobApplications.Where(o => o.ApplicationStatus == TalentAcquisition.Core.Domain.ApplicationStatus.Screened).Count()</h2>
                     </div>
                     <div class="col-md-2">
-                        <h5 class="text-center">Job Offered</h5>
-                        <h3 class="text-center">@Model.JobApplications.Where(o => o.ApplicationStatus == TalentAcquisition.Core.Domain.ApplicationStatus.JobOffer).Count()</h3>
+                        <h5 class="text-center text-muted">Interviewed</h5>
+                        <h2 class="text-center">@Model.JobApplications.Where(o => o.ApplicationStatus == TalentAcquisition.Core.Domain.ApplicationStatus.Interview).Count()</h2>
+                    </div>
+                    <div class="col-md-2">
+                        <h5 class="text-center text-muted">Job Offered</h5>
+                        <h2 class="text-center">@Model.JobApplications.Where(o => o.ApplicationStatus == TalentAcquisition.Core.Domain.ApplicationStatus.JobOffer).Count()</h2>
                     </div>
                 </div>
             </div>
@@ -78,12 +89,13 @@
         </div>
     </div>
 </div>
+
 <div class="container body-content">
     <br />
     <div class="col-md-4">
         <br />
         <div class="container">
-            <section class="container body-content">
+            <section class="container ">
                 <div class="row Details" id="JobDetails">
                     <h4>Skill Matching</h4>
                     <div class="col-lg-12" style="font-size:70%">
@@ -128,7 +140,7 @@
                     </div>
                 </div>
             </section>
-            <section class="container body-content">
+            <section class="container " style="margin-top:-3.5em">
                 <div class="row Details" id="JobDetails">
                     <h4>Job Details</h4>
                     <div class="col-lg-12" style="font-size:90%">
@@ -235,13 +247,13 @@
         </div>
     </div>
     <div class="col-md-8" style="font-size:90%">
-        <br />
+       
         <section class="body-content">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
+            <div class="">
+                @*<div class="panel-heading">
                     Matching Result
-                </div>
-                <div class="panel-body" style="margin-bottom:1.5em">
+                </div>*@
+                <div class="" style="margin-top:5.8em">
                     @if (ViewBag.Filter == null)
                    {
                         <div class="row Details" id="ClosedApplications">

@@ -3,37 +3,40 @@
 @*<p>
         @Html.ActionLink("Create New", "Create")
     </p>*@
-<table class="table table-striped">
+<table class="table table-striped" style="border:1px solid lightgrey;font-size:80%">
     <tr>
         <th>
             @*@Html.DisplayNameFor(model => model.EmployeeId)*@
-            <h5><strong>Employee ID</strong></h5>
+            <h6><strong>Employee ID</strong></h6>
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.EmployeeName)*@
-            <h5><strong>Fullname</strong></h5>
+            <h6><strong>Full Name</strong></h6>
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.StartDate)*@
-            <h5><strong>Proposed Start Date</strong></h5>
+            <h6><strong>Proposed Start Date</strong></h6>
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.EndDate)*@
-            <h5><strong>Proposed End Date</strong></h5>
+            <h6><strong>Proposed End Date</strong></h6>
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.Duration)*@
-            <h5><strong>Duration</strong></h5>
+            <h6><strong>Duration</strong></h6>
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.ApplyDate)*@
-            <h5><strong>Applied Date</strong></h5>
+            <h6><strong>Applied Date</strong></h6>
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.Status)*@
-            <h5><strong>Status</strong></h5>
+            <h6><strong>Status</strong></h6>
         </th>
-        <th></th>
+        <th>
+            <h6><strong>Modification</strong></h6>
+        </th>
+        
     </tr>
 
     @foreach (var item in Model)

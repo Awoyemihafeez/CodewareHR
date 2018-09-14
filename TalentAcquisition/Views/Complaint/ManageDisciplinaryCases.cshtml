@@ -4,7 +4,7 @@
     ViewBag.Title = "Manage Disciplinary Cases";
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
-<p style="font-size: 22px;">Disciplinary Case</p>
+@*<p style="font-size: 22px;">Disciplinary Case</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -12,13 +12,13 @@
     <li class="active">Disciplinary Case</li>
     <li class="active">Details</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+<section class="container-fluid">
+    <div class="container-fluid">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">Disciplinary Case - @Model.CaseNumber</p>
-            </div>
-            <div class="panel-body">
+            </div>*@
+            <div class="">
                 <div>
                     <dl class="dl-horizontal">
                         <dt>

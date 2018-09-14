@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 <div style="overflow-x:hidden">
-<p style="font-size: 22px;">Cash Requisition</p>
+@*<p style="font-size: 22px;">Cash Requisition</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -18,6 +18,8 @@
         h5 {
             color: #428bca !important;
             text-decoration: none !important;
+            border-bottom:1px solid lightgrey;
+            padding-bottom:0.8em;
         }
 
         .panel-title > a {
@@ -41,9 +43,9 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-            <div class="panel panel-default" style="margin-bottom: 0.5em;">
-                <div class="panel-heading">
-                    <div class="panel-title">
+            <div class="">
+                <div class="">
+                    <div class="">
                         <a data-toggle="collapse" href="#collapse5"><h5 style="font-weight:bold"> Cash Requisition</h5></a>
                     </div>
                 </div>
@@ -61,7 +63,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.No, htmlAttributes: new { @class = "col-md-4" })
                                         <div class="col-md-8">
-                                            <input type="text" id="No" name="No" value="@Model.No" class="form-control" ng-readonly="true" />
+                                            <input type="text" id="No" name="No" value="@Model.No" class="form-control input-sm" ng-readonly="true" />
                                             @*@Html.EditorFor(model => model.No, new { htmlAttributes = new { @class = "form-control" } })*@
                                             @Html.ValidationMessageFor(model => model.No, "", new { @class = "text-danger" })
                                         </div>
@@ -70,18 +72,18 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.CashRequisitionTypeCode, htmlAttributes: new { @class = "col-md-4" })
                                         <div class="col-md-8">
-                                            @Html.DropDownList("CashRequisitionTypeCode", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.DropDownList("CashRequisitionTypeCode", null, htmlAttributes: new { @class = "form-control  input-sm" })
                                             @Html.ValidationMessageFor(model => model.CashRequisitionTypeCode, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <div class="col-md-4">
+                                        <div class="">
                                             @*<span class="alert-danger pull-left">*</span>*@
                                             @Html.LabelFor(model => model.RequestCreator, htmlAttributes: new { @class = "col-md-4" })
                                         </div>
                                         <div class="col-md-8">
-                                            <select class="form-control" id="RequestCreator" name="RequestCreator" ng-model="SelectedEmployee"
+                                            <select class="form-control  input-sm" id="RequestCreator" name="RequestCreator" ng-model="SelectedEmployee"
                                                     ng-options="item.Number for item in employees track by item.Id" ng-change="selectedemployeechanged()"></select>
                                             @*@Html.EditorFor(model => model.RequestCreator, new { htmlAttributes = new { @class = "form-control" } })*@
                                             @Html.ValidationMessageFor(model => model.RequestCreator, "", new { @class = "text-danger" })
@@ -91,7 +93,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "col-md-4" })
                                         <div class="col-md-8">
-                                            @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control disabled" } })
+                                            @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control  input-sm" } })
                                             @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -100,7 +102,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.DateModified, htmlAttributes: new { @class = "col-md-4" })
                                         <div class="col-md-8">
-                                            @Html.EditorFor(model => model.DateModified, new { htmlAttributes = new { @class = "form-control" ,@disabled="true" } })
+                                            @Html.EditorFor(model => model.DateModified, new { htmlAttributes = new { @class = "form-control  input-sm",@*@disabled="true"*@ } })
                                             @Html.ValidationMessageFor(model => model.DateModified, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -108,7 +110,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.BranchCode, htmlAttributes: new { @class = "col-md-4" })
                                         <div class="col-md-8">
-                                            @Html.DropDownList("BranchCode", new SelectList(ViewBag.Branches, "BranchId ", "Location"), null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.DropDownList("BranchCode", new SelectList(ViewBag.Branches, "BranchId ", "Location"), null, htmlAttributes: new { @class = "form-control  input-sm" })
                                             @Html.ValidationMessageFor(model => model.BranchCode, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -116,7 +118,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.DepartmentId, htmlAttributes: new { @class = "col-md-4" })
                                         <div class="col-md-8">
-                                            <input ng-model="selectedEmployeeDepartment" id="DepartmentId" name="DepartmentId" class="form-control" ng-readonly="true" />
+                                            <input ng-model="selectedEmployeeDepartment" id="DepartmentId" name="DepartmentId" class="form-control  input-sm" ng-readonly="true" />
                                             @*@Html.EditorFor(model => model.DepartmentId, new { htmlAttributes = new { @class = "form-control hidden" } })*@
                                             @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
                                         </div>
@@ -125,7 +127,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "col-md-4" })
                                         <div class="col-md-8">
-                                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control  input-sm" } })
                                             @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -141,9 +143,9 @@
                 </div>
             </div>
 
-            <div class="panel panel-default" >
-                <div class="panel-heading">
-                    <div class="panel-title">
+            <div class="" >
+                <div class="">
+                    <div class="">
                         <a data-toggle="collapse" href="#collapse4"><h5 style="font-weight:bold"> Line Items</h5></a>
                     </div>
                 </div>
@@ -162,7 +164,7 @@
                                 }
                             </style>
                             <form id="empform" ng-submit="submitGrievanceTypes()">
-                                <table id="mytable" class="table table-striped">
+                                <table id="mytable" class="table table-striped" style="font-size:90%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -186,8 +188,8 @@
                                             </td>
                                             <td>
                                                 <div class="buttons">
-                                                    <button class="btn btn-primary btn-xs" ng-click="edit($index)">Edit</button>
-                                                    <button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>
+                                                    <a class="" style="cursor:pointer" ng-click="edit($index)">Edit |</a>
+                                                    <a class="" style="cursor:pointer" ng-click="delete($index)">Delete</a>
                                                 </div>
                                             </td>
                                         </tr>

@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Create User Permission</p>
+@*<p style="font-size: 22px;">Create User Permission</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -12,18 +12,18 @@
     <li class="active">Admin Permissions List</li>
     <li class="active">Create</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+<section class="container-fluid">
+    <div class="container-fluid">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">Create Permission</p>
-            </div>
-            <div class="panel-body">
+            </div>*@
+            <div class="">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
 
-                    <div class="form-horizontal">
+                    <div class="form-horizontal" style="padding-right:40em">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group hidden">
                             @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -51,13 +51,13 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-default" />
+                                <input type="submit" value="Create" class="btn btn-info" />
                             </div>
                         </div>
                     </div>
                 }
 
-                <div>
+                <div style="padding-left: 7.8em; margin-top: 2em;">
                     @Html.ActionLink("Back to List", "Index")
                 </div>
             </div>

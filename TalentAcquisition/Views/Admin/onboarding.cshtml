@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-            <p style="font-family: 'Fira Mono';font-size: 22px;">Onboarding</p>
+            @*<p style="font-family: 'Fira Mono';font-size: 22px;">Onboarding</p>*@
             <ol class="breadcrumb">
                 <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
                 @*<li><a href="#">Private</a></li>*@
@@ -25,58 +25,63 @@
             color: #2a6496;
             text-decoration: none;
         }
+        h5{
+            border-bottom:1px solid lightgrey;
+            padding-bottom:0.8em;
+        }
 </style>
             <section class="container body-content">
-                <span>@ViewBag.Message</span>
-                <div class="row">
-                    @*<a href="@Url.Action("requisition/create","Admin")" id="reqjob" class="btn"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Requisition</a>
-                        <span class="glyphicon glyphicon-search"></span> <input class="form-control input-sm" id="myInput" type="text" placeholder="filter requisition entries.." style="display:inline-block;outline:none" />*@
+    <span>@ViewBag.Message</span>
+    <div class="row">
+        @*<a href="@Url.Action("requisition/create","Admin")" id="reqjob" class="btn"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Requisition</a>
+            <span class="glyphicon glyphicon-search"></span> <input class="form-control input-sm" id="myInput" type="text" placeholder="filter requisition entries.." style="display:inline-block;outline:none" />*@
+        <a href="@Url.Action("Template/create","Onboarding")" style="padding:0.6em;margin-bottom: 2em;  border-radius:10px" class="btn btn-default btn-xs"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Template</a>
+    </div>
+    <div class="row">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse1"> <h5 style="font-weight:bold"> Onboarding Templates</h5></a>
                 </div>
-                <div class="row">
-                    <div class="panel panel-default" style=" margin-bottom: 0.5em;" >
-                        <div class="panel-heading">
-                            <div class="panel-title">
-                                <a data-toggle="collapse" href="#collapse1"> <h5 style="font-weight:bold"> Onboarding Templates</h5></a>
-                            </div>
-                        </div>
-                        <div id="collapse1" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <a href="@Url.Action("Template/create","Onboarding")" style="padding:0.6em;margin-bottom: 2em;  border-radius:10px" class="btn btn-default btn-xs"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Template</a>
-                                @Html.Action("_GetAllTemplates", "Onboarding")
-                            </div>
-                        </div>
-                        </div>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="">
+
+                    @Html.Action("_GetAllTemplates", "Onboarding")
                 </div>
-                <div class="row">
-                    <div class="panel panel-default" style=" margin-bottom: 0.5em;"> 
-                        <div class="panel-heading">
-                            <div class="panel-title">
-                                <a data-toggle="collapse" href="#collapse2"> <h5 style="font-weight:bold"> Incoming Onboarding Requests</h5></a>
-                            </div>
-                        </div>
-                        <div id="collapse2" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                @Html.Action("_GetAllncomingOnboardings", "Onboarding")
-                            </div>
-                        </div>
-                        </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse2"> <h5 style="font-weight:bold"> Incoming Onboarding Requests</h5></a>
                 </div>
-                <div class="row">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title">
-                                <a data-toggle="collapse" href="#collapse3"> <h5 style="font-weight:bold"> Active Onboarding</h5></a>
-                            </div>
-                        </div>
-                        <div id="collapse3" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                @Html.Action("_GetAllActiveOnboardings", "Onboarding")
-                            </div>
-                        </div>
-               </div>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse in">
+                <div class="">
+                    @Html.Action("_GetAllncomingOnboardings", "Onboarding")
                 </div>
-                
-            </section>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse3"> <h5 style="font-weight:bold"> Active Onboarding</h5></a>
+                </div>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse in">
+                <div class="">
+                    @Html.Action("_GetAllActiveOnboardings", "Onboarding")
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
 
 
 

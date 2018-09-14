@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Edit Department";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
 <style>
@@ -24,10 +24,9 @@
         .adminsidebar .nav {
             margin: 0 auto;
             /*background:rgba(255,255,255,0.1);*/
-            padding: 1em;
-        }
+            
 
-        .adminsidebar li {
+        /*.adminsidebar li {
             border-bottom: 1px solid white;
             text-align: left;
             border-left: 4px solid brown;
@@ -71,29 +70,25 @@
                     border-left: 5px solid rgb(250,136,234);
                 }*/
 </style>
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
+    @*<li><a href="#">Private</a></li>*@
+    @*<li><a href="#">Pictures</a></li>*@
+    <li class="active">Department </li>
+    <li class="active">Edit</li>
+</ol>
 
 <section class="mainbody">
-    <div class="container-fluid">
-        <div class="col-md-3 ">
-            <div class="container">
-                <ul class="nav">
-                    @Html.Partial("_AdminDashboardSidebar")
-                </ul>
-            </div>
-        </div>
-
-
-
-        <section class="container body-content">
+        <section class="container-fluid">
             <div class="row">
-                <div class="col-md-9" style="margin-top:1.5em;margin-left:-20px">
-                <div class="panel panel-default" style="height:538px;width:970px">
-                    <div class="panel-heading">
-                        <p class="panel-title">
+                <div class="col-md-9" style="">
+                <div class="">
+                    <div class="">
+                        @*<p class="panel-title">
                             <a data-toggle="collapse" href="#main" style="text-decoration:none">Edit Department</a>
-                        </p>
+                        </p>*@
                     </div>
-                    <div class="panel-body" style="text-align:center;padding-top:10em;margin-top:2em">
+                    <div class="" style="padding-right: 30em;">
                         @using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
@@ -111,15 +106,15 @@
                                 </div>
 
 
-                                <div class="form-group" style="text-align:center;padding-right:8em;margin-top:1em">
+                                <div class="form-group" style="    padding-left: 7em; margin-top: 0.6em;">
                                     <div class="col-md-offset-2 col-md-10">
-                                        <input type="submit" value="Save Changes" class="btn btn-default" />
+                                        <input type="submit" value="Save Changes" class="btn btn-info" />
                                     </div>
                                 </div>
                             </div>
                         }
 
-                        <div style="text-align:center;padding-left:1em;margin-top:1em">
+                        <div style="    padding-left: 11.7em; margin-top: 1em;">
                             @Html.ActionLink("Back to List", "Index")
                         </div>
 

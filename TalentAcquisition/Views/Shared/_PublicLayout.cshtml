@@ -20,7 +20,7 @@
     <link href="~/Assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 
-<body class="publicportal">
+<body class="">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -44,9 +44,7 @@
     <div class="container-fluid">
         @RenderBody()
     </div>
-        <footer>
-            <p>&copy; @DateTime.Now.Year - HRM</p>
-        </footer>
+      
     @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/datetime")

@@ -6,7 +6,7 @@
 }
 
             @*<div style="padding-top:2em;"></div>*@
-            <p style="font-size: 22px;">Employee Management</p>
+            @*<p style="font-size: 22px;">Employee Management</p>*@
             <ol class="breadcrumb">
                 <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
                 @*<li><a href="#">Private</a></li>*@
@@ -14,8 +14,8 @@
                 <li class="active">Employee Directory</li>
                 <li class="active">Active</li>
             </ol>
-            <section class="container body-content">
-    <div class="row bioform">
+            <section class="container-fluid">
+  
         <!--Comment-->
         <span class="alert-danger"></span>
         <span class="alert-danger">@ViewBag.Message</span>
@@ -23,62 +23,40 @@
                 @Html.ActionLink("Create New", "Create")
             </p>*@
 
-        <a href="@Url.Action("Personnel/create","Admin")" class="btn btn-sm  btn-default" style="padding:0.6em;margin-bottom:1em;border-radius:10px"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Create New Employee</a>
-        <div class="row">
+        @*<a href="@Url.Action("Personnel/create","Admin")" class="btn btn-sm  btn-default" style="padding:0.6em;margin-bottom:1em;border-radius:10px"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Create New Employee</a>*@
+       
             <style>
-                .profile-widget {
-                    /*background-color: #fff;
-                    height:50px;
-                    border: 1px solid #ededed;
-                    border-radius: 4px;
-                    margin-bottom: 3em;
-                    padding: 20px;
-                    text-align: center;
-                    position: relative;
-                    box-shadow:5px 5px rgba(128, 128, 128,0.2);*/
-                }
-                i
-                {
-                    color:dimgray;
-                    display: inline-block;
-                    /*content: "\f142";*/
-                    position: absolute;
-                    right: 3px;
-                    text-align: right;
-                    top: 4px;
-                    padding: 1em;
-                }
-     
+             
             </style>
+         
+
 
             @foreach (var employee in Model)
             {
               
 
-                <div class="col-md-4 col-sm-4 col-xs-6 col-lg-4">
-                    <div class="profile-widget" @*style="text-align:center"*@>
-                        @*<a href=""></a>*@
-                        @*<a href="">
-                            <i class="fa fa-ellipsis-v"></i>
-                           
-                        </a>*@
-                        <div class="col-md-3">
-                            @if (String.IsNullOrEmpty(employee.PassportDetails))
-                            {
-                                <img src="~/Assets/Icons/Man-Suit-2.png" alt="Avatar" width="80" height="80" style="border-radius:50%">
-                            }
-                            else
-                            {
-                                string url = Path.Combine(Server.MapPath("~/Uploads/"), employee.UserId + "_img.png");
-                                string azureurl = Path.Combine("https://codelabstorage.blob.core.windows.net/webappstoragedotnet-imagecontainer/", employee.PassportDetails);
-                                <img src="@azureurl" alt="Avatar" width="80" height="80" style="border-radius:50%">
-                            }
-                        </div>
-                        <div class="col-md-4">
+                <div class="col-md-3" style="    padding-bottom: 0.5em;">
+                    <div class="" style="background-color: whitesmoke; border-radius: 10px;" >
+                        
+                        <div class="">
+                            <a class="avatar" style="display:inline-block;position:relative" href="@Url.Action("Details", new { id = employee.ID })">
+                                @if (String.IsNullOrEmpty(employee.PassportDetails))
+                                {
+                                    <img src="~/Assets/Icons/Man-Suit-2.png" alt="Avatar" width="50" height="50" style="border-radius:50%;box-shadow: 2px 1px 2px 1px lightgrey;">
+                                }
+                                else
+                                {
+                                    string url = Path.Combine(Server.MapPath("~/Uploads/"), employee.UserId + "_img.png");
+                                    string azureurl = Path.Combine("https://codelabstorage.blob.core.windows.net/webappstoragedotnet-imagecontainer/", employee.PassportDetails);
+                                    <img src="@azureurl" alt="Avatar" width="50" height="50" style="border-radius:50%;box-shadow: 2px 1px 2px 1px lightgrey;">
+                                }
+                            </a>
+                        <div class="z" style="display:inline-block;vertical-align:middle;padding-left: 1em;">
                             <h4 class="">@employee.FullName</h4>
-                            <div class="small text-muted" style="">@employee.OfficePosition.Title</div>
+                            <p class="small text-muted" style="">@employee.OfficePosition.Title</p>
                         </div>
                     </div>
+                        </div>
                 </div>
                 @*<div class="col-md-6" style="padding:2em;height:200px">
     <div class="card text-center" >
@@ -106,7 +84,7 @@
             </h6>*@
              
                         }
-            </div>
+    
 
             @*<table class="table table-striped" style="font-size:90%">
 
@@ -172,5 +150,5 @@
                     }
 
                 </table>*@
-            </div>
+          
         </section>

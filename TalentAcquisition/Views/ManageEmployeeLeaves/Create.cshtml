@@ -48,50 +48,21 @@
     //})
 </script>
 
-<h2>Create Leave Plan</h2>
+@*<h2>Create Leave Plan</h2>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
     @*<li><a href="#">Pictures</a></li>*@
     <li class="active">Create Leave Plan</li>
 </ol>
-<style>
-    h5 {
-        color: #428bca !important;
-        text-decoration: none !important;
-    }
 
-    .panel-title > a {
-        text-decoration: none !important;
-    }
-
-        .panel-title > a:hover {
-            color: #2a6496 !important;
-            text-decoration: none !important;
-        }
-</style>
-<style>
-   
-    .panel-title > a {
-        text-decoration: none !important;
-    }
-
-        .panel-title > a:hover {
-            color: #2a6496 !important;
-            text-decoration: none !important;
-        }
-        .form-group
-        {
-               padding-left: 200px;
-        }
-</style>
-<section class="container">
-    <div class="row">
+<section class="container-fluid">
+    <div class="container-fluid">
         <span class="alert-danger">@ViewBag.Error</span>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="panel-title">
-                    <a data-toggle="collapse" href="#collapse2"><h5 class="font-weight:bold"> Create Leave Plan</h5></a>
+        <div class="">
+            <div class="">
+                <div class="">
+                    <a data-toggle="collapse" href="#collapse2"><h5 style="font-weight:bold;border-bottom:1px solid lightgrey;padding-bottom:0.8em"> Create Leave Plan</h5></a>
                 </div>
             </div>
             <div id="collapse2" class="panel-collapse collapse in" >
@@ -101,14 +72,14 @@
                     {
                         @Html.AntiForgeryToken()
 
-                        <div class="form-horizontal" style="text-align:center">
-                            <h4 style="text-align:center"> Leave plan details</h4>
-                            <hr />
+                        <div class="form-horizontal" style="padding-right:40em">
+                            @*<h4 style="text-align:center"> Leave plan details</h4>
+                            <hr />*@
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group hidden">
                                 @Html.LabelFor(model => model.EmployeeId, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.EmployeeId, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.EmployeeId, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                     @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -116,7 +87,7 @@
                             <div class="form-group hidden">
                                 @Html.LabelFor(model => model.EmployeeName, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.EmployeeName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.EmployeeName, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                     @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -124,7 +95,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.StartDate, "Start Date", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    <input type="text" name="StartDate" data-date-format="DD-MM-YYYY" id="StartDate" class="form-control" value="" no-padding placeholder="Pick First Date for Interview" />
+                                    <input type="text" name="StartDate" data-date-format="DD-MM-YYYY" id="StartDate" class="form-control input-sm" value="" no-padding placeholder="Pick First Date for Interview" />
                                     @*@Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })*@
                                     @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
                                 </div>
@@ -133,7 +104,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.EndDate, "End Date", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    <input type="text" name="EndDate" data-date-format="DD-MM-YYYY" id="EndDate" class="form-control" value="" no-padding placeholder="Pick First Date for Interview" />
+                                    <input type="text" name="EndDate" data-date-format="DD-MM-YYYY" id="EndDate" class="form-control input-sm" value="" no-padding placeholder="Pick First Date for Interview" />
                                     @*@Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })*@
                                     @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
                                 </div>
@@ -142,7 +113,7 @@
                                 @Html.LabelFor(model => model.LeaveType, "Leave Type", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
                                     @*@Html.DropDownList("DdlLeavetype", new SelectList(ViewBag.LeaveType_Limits, "ID", "LeaveType"), "Select", htmlAttributes: new { @class = "form-control" })*@
-                                    @Html.DropDownList("LeaveType", new SelectList(String.Empty, "Text", "Text"), "Select", htmlAttributes: new { @class = "form-control" })
+                                    @Html.DropDownList("LeaveType", new SelectList(String.Empty, "Text", "Text"), "Select", htmlAttributes: new { @class = "form-control input-sm" })
                                     @Html.ValidationMessageFor(model => model.LeaveType, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -150,14 +121,14 @@
                                 @Html.LabelFor(model => model.LeaveLimit, "Leave Limit", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
                                     @*@Html.DropDownList("DdlLeavetype", new SelectList(ViewBag.LeaveType_Limits, "ID", "LeaveType"), "Select", htmlAttributes: new { @class = "form-control" })*@
-                                    @Html.DropDownList("LeaveLimit", new SelectList(String.Empty, "Text", "Text"), "Select", htmlAttributes: new { @class = "form-control" })
+                                    @Html.DropDownList("LeaveLimit", new SelectList(String.Empty, "Text", "Text"), "Select", htmlAttributes: new { @class = "form-control input-sm" })
                                     @Html.ValidationMessageFor(model => model.LeaveLimit, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                     @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -165,48 +136,48 @@
                             <div class="form-group hidden">
                                 @Html.LabelFor(model => model.ApplyDate, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.ApplyDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.ApplyDate, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                     @Html.ValidationMessageFor(model => model.ApplyDate, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group hidden">
                                 @Html.LabelFor(model => model.LeaveType, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.LeaveType, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.LeaveType, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                     @Html.ValidationMessageFor(model => model.LeaveType, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group hidden">
                                 @Html.LabelFor(model => model.LeaveLimit, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.LeaveLimit, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.LeaveLimit, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                     @Html.ValidationMessageFor(model => model.LeaveLimit, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group hidden">
                                 @Html.LabelFor(model => model.TotalLeaveTaken, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.TotalLeaveTaken, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.TotalLeaveTaken, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                     @Html.ValidationMessageFor(model => model.TotalLeaveTaken, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group hidden">
                                 @Html.LabelFor(model => model.TotalLeaveAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.TotalLeaveAvailable, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.TotalLeaveAvailable, new { htmlAttributes = new { @class = "form-control input-sm" } })
                                     @Html.ValidationMessageFor(model => model.TotalLeaveAvailable, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group hidden">
                                 @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+                                    @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control input-sm" })
                                     @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="">
-                                <div class="col-md-10" style="    margin: 2em; padding-left: 10em;">
+                                <div class="col-md-10" style="    margin: 2em; padding-left: 9em;">
                                     <input type="submit" value="Create" class="btn btn-md btn-success" />
                                 </div>
                             </div>

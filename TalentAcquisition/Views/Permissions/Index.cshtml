@@ -5,24 +5,30 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">User Permissions List</p>
+@*<p style="font-size: 22px;">User Permissions List</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
     @*<li><a href="#">Pictures</a></li>*@
     <li class="active">Admin Permissions List</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+<section class="container-fluid" style="font-size:90% ">
+    <div class="container-fluid">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">Admin Permissions List</p>
-            </div>
-            <div class="panel-body">
+            </div>*@
+            <div class="">
+                <style>
+                    a:hover{
+                        background-color:whitesmoke;
+                    }
+                </style>
                 <p>
-                    @Html.ActionLink("Create New", "Create")
+                    <a class="" href="@Url.Action("Create")" style="border:1px solid lightgrey;padding:0.8em;text-decoration:none;border-radius:10px"> Create</a>
+                    @*@Html.ActionLink("Create New", "Create")*@
                 </p>
-                <table class="table">
+                <table class="table table-striped" style="border:1px solid lightgrey;font-size:90%;margin-top:2em">
                     <tr>
                         <th>
                             @Html.DisplayNameFor(model => model.Description)
@@ -30,7 +36,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Name)
                         </th>
-                        <th></th>
+                        @*<th></th>*@
                     </tr>
 
                     @foreach (var item in Model)

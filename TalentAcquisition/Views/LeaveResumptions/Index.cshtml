@@ -5,25 +5,32 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p>Leave Resumption</p>
+@*<p>Leave Resumption</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
     @*<li><a href="#">Pictures</a></li>*@
     <li class="active">Leave Resumption</li>
 </ol>
-<section class="container body-content">
+<section class="container-fluid">
     @*<span>@ViewBag.Message</span>*@
-    <div class="row">
+    <div class="container-fluid">
         @*<a href="@Url.Action("requisition/create","Admin")" id="reqjob" class="btn"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Requisition</a>
             <span class="glyphicon glyphicon-search"></span> <input class="form-control input-sm" id="myInput" type="text" placeholder="filter requisition entries.." style="display:inline-block;outline:none" />*@
     </div>
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="panel-title">
+    <style>
+        h5{
+            border-bottom:1px solid lightgrey;
+            padding-bottom:0.8em;
+            font-weight:bold;
+        }
+    </style>
+    <div class="container-fluid">
+        <div class="">
+            <div class="">
+                <h5 class="">
                     <a data-toggle="collapse" href="#collapse5">Personal Leave Resumption Management</a>
-                </div>
+                </h5>
             </div>
             <div id="collapse5" class="panel-collapse collapse">
                 <div class="panel-body">
@@ -37,45 +44,45 @@
     </div>
     @if (User.IsInRole("Admin"))
     {
-        <div class="row">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">
+        <div class="container-fluid">
+            <div class="">
+                <div class="">
+                    <h5 class="">
                         <a data-toggle="collapse" href="#collapse2">Pending Leave Resumptions</a>
-                    </div>
+                    </h5>
                 </div>
                 <div id="collapse2" class="panel-collapse collapse">
-                    <div class="panel-body" style="overflow-x:scroll">
+                    <div class="panel-body" style="">
                         @Html.Action("GetPendingList", "LeaveResumptions")
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="row">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">
+        <div class="container-fluid">
+            <div class="">
+                <div class="">
+                    <h5 class="">
                         <a data-toggle="collapse" href="#collapse3">Approved Leave Resumptions</a>
-                    </div>
+                    </h5>
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body" style="overflow-x:scroll">
+                    <div class="panel-body" style="">
                         @Html.Action("GetApprovedList", "LeaveResumptions")
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="row">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">
+        <div class="container-fluid">
+            <div class="">
+                <div class="">
+                    <h5 class="">
                         <a data-toggle="collapse" href="#collapse4">Rejected Leave Resumptions</a>
-                    </div>
+                    </h5>
                 </div>
                 <div id="collapse4" class="panel-collapse collapse">
-                    <div class="panel-body" style="overflow-x:scroll">
+                    <div class="panel-body" style="">
                         @Html.Action("GetRejectedList", "LeaveResumptions")
                     </div>
                 </div>

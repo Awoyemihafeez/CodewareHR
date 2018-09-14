@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Complaint Management</p>
+@*<p style="font-size: 22px;">Complaint Management</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
@@ -13,15 +13,15 @@
     <li class="active">Complaint Management</li>
     <li class="active">Grievances</li>
 </ol>
-<section class="container body-content">
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+<section class="container-fluid">
+    <div class="container-fluid">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">Grievances</p>
-            </div>
-            <div class="panel-body">
-                <table class="table">
-                    <tr style="font-size:80%">
+            </div>*@
+            <div class="">
+                <table class="table table-striped" style="border:1px solid lightgrey;font-size:90%">
+                    <tr>
                         <th>
                             Grievance Number
                         </th>
@@ -49,7 +49,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.OffenderName)
                         </th>
-                        <th></th>
+                        <th>Modification</th>
                     </tr>
 
                     @foreach (var item in Model)

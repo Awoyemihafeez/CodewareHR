@@ -102,22 +102,22 @@
 </div>
 <!-- /.row -->
 <hr/>
-<div class="row">
+<div class="container">
     @foreach (var item in Model.Notifications)
     {
-        <div class="col-md-4 container">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
+        <div class=" col-md-4" style="padding: 0.5em;" >
+            <div class="" style="background-color: whitesmoke;border-radius: 10px; padding: 0.5em 1em" >
+                <div class="">
+                    <div class="">
+                        <h5 class="" style=" ">
                            @item.Title
-                        </h4>
+                        </h5>
                     </div>
-                    <div id="collapse1" class="panel-collapse">
-                        <div class="panel-body">
-                            <h5>Registered Applicants: @item.JobApplicationCount</h5>
-                            <h5>Location: @item.Location</h5>
-                            <h5><a href="@item.url">Details</a></h5>
+                    <div id="">
+                        <div class="">
+                            <h6 class="text-muted">Registered Applicants: @item.JobApplicationCount</h6>
+                            <h6 class="text-muted">Location: @item.Location</h6>
+                            <h6><a href="@item.url">Details</a></h6>
                         </div>
                     </div>
                 </div>

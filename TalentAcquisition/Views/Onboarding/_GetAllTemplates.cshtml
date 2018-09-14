@@ -33,9 +33,9 @@
         </td>
         <td>
             @*@Html.ActionLink("Edit", "Template/Customize/" + item.ID, "Onboarding", new { title = item.Title }*@
-            <a href="@Url.Action("Template/Customize/" + item.ID, "Onboarding")" class="btn btn-xs btn-success" style=""> Edit</a>
+            <a href="@Url.Action("Template/Customize/" + item.ID, "Onboarding")" class="" style=""> Edit |</a>
             @*@Html.ActionLink("Details", "Template/Customize/" + item.ID, "Onboarding", new { id = item.ID })*@
-            <a href="@Url.Action( "Template/Customize/" + item.ID, "Onboarding")" class="btn btn-xs btn-primary" style=""> Details</a>
+            <a href="@Url.Action( "Template/Customize/" + item.ID, "Onboarding")" class="" style=""> Details</a>
         </td>
     </tr>
 }

@@ -6,7 +6,7 @@
 }
 <script src="~/ckeditor/ckeditor.js"></script>
 <script src="~/ckeditor/adapters/jquery.js"></script>
-<p style="font-family: 'Fira Mono';font-size: 22px;">Onboarding</p>
+@*<p style="font-family: 'Fira Mono';font-size: 22px;">Onboarding</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     <li><a href="@Url.Action("Onboarding","Admin")">Onboarding</a></li>
@@ -37,8 +37,7 @@
                     if (Model.Status.ToString() == "Review")
                     {
                         <a href="javascript:void(0)" id="publishguide" style="padding:0.6em; border-radius:10px" class="btn btn-default btn-xs"><img src="~/Assets/Icons/File-Plus.png" width="20" /> Publish Guide</a>
-                    <a href="javascript:void(0)" id="sendemail">
-                        <img src="~/Assets/Icons/Envelope-Refresh.png" width="20" />  Send To Applicant
+                    <a href="javascript:void(0)" id="sendemail" style="padding:0.6em; border-radius:10px" class="btn btn-default btn-xs"><img src="~/Assets/Icons/Envelope-Refresh.png" width="20" />  Send To Applicant
                     </a>
                     
                         <a href="/Onboarding/Preview/@Model.previewurl" id="" target="_blank"  style="padding:0.6em; border-radius:10px" class="btn btn-default btn-xs">

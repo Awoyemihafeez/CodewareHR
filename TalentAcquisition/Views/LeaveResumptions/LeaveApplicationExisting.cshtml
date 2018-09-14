@@ -4,29 +4,29 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p>Leave Resumption</p>
+@*<p>Leave Resumption</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
     @*<li><a href="#">Pictures</a></li>*@
     <li class="active">Existing Leave Records</li>
 </ol>
-<section class="container body-content">
+<section class="container-fluid">
     @*<span>@ViewBag.Message</span>*@
-    <div class="row">
+    <div class="container-fluid">
         @*<a href="@Url.Action("requisition/create","Admin")" id="reqjob" class="btn"><img src="~/Assets/Icons/File-Plus.png" width="20" />Create Requisition</a>
             <span class="glyphicon glyphicon-search"></span> <input class="form-control input-sm" id="myInput" type="text" placeholder="filter requisition entries.." style="display:inline-block;outline:none" />*@
     </div>
-    <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="panel-title">
+    <div class="container-fluid">
+        <div class="">
+            <div class="">
+                @*<div class="">
                     <a data-toggle="collapse" href="#collapse5">Existing Leave Records</a>
-                </div>
+                </div>*@
             </div>
-            <div id="collapse5" class="panel-collapse collapse">
-                <div class="panel-body" style="overflow-x:scroll">
-                    <table class="table table-striped" style="font-size:80%">
+            <div id="">
+                <div class="">
+                    <table class="table table-striped" style="font-size:80%;border:1px solid lightgrey">
                         <tr>
                             @*<th>
                                     @Html.DisplayNameFor(model => model.LeavePlanID)
@@ -35,36 +35,36 @@
                                     @Html.DisplayNameFor(model => model.EmployeeId)
                                 </th>*@
                             <th>
-                                @Html.DisplayNameFor(model => model.EmployeeName)
+                               Employee Name
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.LeaveType)
+                                Leave Type
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.LeaveLimit)
+                               Leave Limit
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.TotalLeaveTaken)
+                               Leave Taken
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.TotalLeaveAvailable)
+                                Available Leave
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.StartDate)
+                               Start Date
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.EndDate)
+                               End Date
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Duration)
+                              Duration
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.ApplyDate)
+                               Apply Date
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.LeaveAppStatus)
+                                Leave Status
                             </th>
-                            <th></th>
+                            <th>Modification</th>
                         </tr>
 
                         @foreach (var item in Model)

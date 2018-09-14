@@ -4,30 +4,37 @@
     Layout = "~/Views/Shared/_NormalLayout.cshtml";
 }
 
-<p style="font-size: 22px;">Expense Management</p>
+@*<p style="font-size: 22px;">Expense Management</p>*@
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Dashboard","Admin")">Home</a></li>
     @*<li><a href="#">Private</a></li>*@
     @*<li><a href="#">Pictures</a></li>*@
     <li class="active">Expense Management</li>
 </ol>
+<style>
+    h5{
+        border-bottom:1px solid lightgrey;
+        padding-bottom:0.8em;
+        font-weight:bold;
+    }
+</style>
 <section class="container body-content">
     <div class="row">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+        <div class="">
+            @*<div class="panel-heading">
                 <p class="">Expense Management</p>
-            </div>
-            <div class="panel-body">
-                <ul>
-                    <li>@Html.ActionLink("Request For Cash Advance", "Transaction/Create", "Expenses")</li>
+            </div>*@
+            <div class="">
+                
+                    <h5>@Html.ActionLink("Request For Cash Advance", "Transaction/Create", "Expenses")</h5>
                     @if (User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Open Cash Transactions ", "Transactions/Open", "Expenses")</li>
-                        <li>@Html.ActionLink("Approved Cash Transactions ", "Transactions/Approved", "Expenses")</li>
-                        <li>@Html.ActionLink("Setup TransactionTypes", "Transaction/Types", "Expenses")</li>
+                        <h5>@Html.ActionLink("Open Cash Transactions ", "Transactions/Open", "Expenses")</h5>
+                        <h5>@Html.ActionLink("Approved Cash Transactions ", "Transactions/Approved", "Expenses")</h5>
+                        <h5>@Html.ActionLink("Setup TransactionTypes", "Transaction/Types", "Expenses")</h5>
                         @*<li>@Html.ActionLink("Supervisor Appraisal ", "Appraisal/Supervisor", "Performance")</li>*@
                     }
-                </ul>
+               
             </div>
         </div>
     </div>
